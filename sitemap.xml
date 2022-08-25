@@ -3,11 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://Lonjiazeng.github.io/categories/</loc>
+    <loc>http://Lonjiazeng.github.io/flex/</loc>
+    <lastmod>2022-08-25T10:50:22+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://Lonjiazeng.github.io/</loc>
+    <lastmod>2022-08-25T10:50:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://Lonjiazeng.github.io/flex/my-first-post/</loc>
+    <lastmod>2022-08-25T10:50:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://Lonjiazeng.github.io/categories/</loc>
   </url>
   
   <url>
