@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Tags - Tag - ljz</title>
+        <title>Tags - Tag - ljz&#39;s personal blog</title>
         <link>http://Lonjiazeng.github.io/tags/</link>
-        <description>Tags - Tag - ljz</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jz.long@qq.com (龙家增)</managingEditor>
-            <webMaster>jz.long@qq.com (龙家增)</webMaster><atom:link href="http://Lonjiazeng.github.io/tags/" rel="self" type="application/rss+xml" /></channel>
+        <description>Tags - Tag - ljz&#39;s personal blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jz.long@qq.com (Jiazeng Long)</managingEditor>
+            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><atom:link href="http://Lonjiazeng.github.io/tags/" rel="self" type="application/rss+xml" /></channel>
 </rss>

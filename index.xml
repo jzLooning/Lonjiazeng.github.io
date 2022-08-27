@@ -1,18 +1,18 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>ljz</title>
+        <title>ljz&#39;s personal blog</title>
         <link>http://Lonjiazeng.github.io/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jz.long@qq.com (龙家增)</managingEditor>
-            <webMaster>jz.long@qq.com (龙家增)</webMaster><lastBuildDate>Thu, 25 Aug 2022 10:50:22 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jz.long@qq.com (Jiazeng Long)</managingEditor>
+            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><lastBuildDate>Thu, 25 Aug 2022 10:50:22 &#43;0800</lastBuildDate>
             <atom:link href="http://Lonjiazeng.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>markdown基础语法</title>
     <link>http://Lonjiazeng.github.io/posts/basic_syntax/</link>
     <pubDate>Thu, 25 Aug 2022 10:50:22 &#43;0800</pubDate>
-    <author>龙家增</author>
+    <author>Jiazeng Long</author>
     <guid>http://Lonjiazeng.github.io/posts/basic_syntax/</guid>
-    <description><![CDATA[本文为markdown官方教程基础语法篇的粗略翻译，本人水平有限，如有不足之处敬请指出。感谢观看 使用标题 语法部分讲解 标题部分使用#来作为标题]]></description>
+    <description><![CDATA[本文为markdown官方教程基础语法篇的粗略翻译，本人水平有限，如有不足之处敬请指出。感谢观看 标题 语法部分讲解 标题部分使用#来作为标题的符]]></description>
 </item>
 </channel>
 </rss>
