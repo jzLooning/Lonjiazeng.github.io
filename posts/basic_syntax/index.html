@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>markdown基础语法 - ljz</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="markdown基础语法" />
+<meta property="og:description" content="本文为markdown官方教程基础语法篇的粗略翻译，本人水平有限，如有不足之处敬请指出。感谢观看 使用标题 语法部分讲解 标题部分使用#来作为标题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Lonjiazeng.github.io/posts/basic_syntax/" />
+<meta property="article:published_time" content="2022-08-25T10:50:22+08:00" />
+<meta property="article:modified_time" content="2022-08-25T10:50:22+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="markdown基础语法"/>
+<meta name="twitter:description" content="本文为markdown官方教程基础语法篇的粗略翻译，本人水平有限，如有不足之处敬请指出。感谢观看 使用标题 语法部分讲解 标题部分使用#来作为标题"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://Lonjiazeng.github.io/posts/basic_syntax/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "markdown基础语法",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/Lonjiazeng.github.io\/posts\/basic_syntax\/"
+        },"genre": "posts","wordcount":  2025 ,
+        "url": "http:\/\/Lonjiazeng.github.io\/posts\/basic_syntax\/","datePublished": "2022-08-25T10:50:22+08:00","dateModified": "2022-08-25T10:50:22+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "龙家增"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="ljz">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="ljz">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">markdown基础语法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>龙家增</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-25">2022-08-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2025 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#语法部分讲解">语法部分讲解</a></li>
+    <li><a href="#其他写法">其他写法</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#加粗">加粗</a></li>
+    <li><a href="#斜体字">斜体字</a></li>
+    <li><a href="#加粗加斜体">加粗加斜体</a></li>
+    <li><a href="#块引用">（块）引用</a>
+      <ul>
+        <li><a href="#嵌套引用">嵌套引用</a></li>
+        <li><a href="#引用中添加其它元素">引用中添加其它元素</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#有序列表">有序列表</a></li>
+    <li><a href="#无序列表">无序列表</a></li>
+    <li><a href="#在列表之间插入元素">在列表之间插入元素</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#加入标题">加入标题</a></li>
+    <li><a href="#直接使用url或者email">直接使用URL或者Email</a></li>
+    <li><a href="#引用类型的链接">引用类型的链接</a>
+      <ul>
+        <li><a href="#第一部分">第一部分</a></li>
+        <li><a href="#第二部分">第二部分</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#图片链接">图片链接</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><em><strong>本文为<a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener noreffer ">markdown官方教程基础语法篇</a>的粗略翻译，本人水平有限，如有不足之处敬请指出。感谢观看</strong></em></p>
+<h1 id="使用标题">使用标题</h1>
+<h2 id="语法部分讲解">语法部分讲解</h2>
+<p>标题部分使用<code>#</code>来作为标题的符号，其中一个<code>#</code>代表一号标题，两个代表二号，以此类推。最多只有六号标题，使用的话最多三个就足够了。<br>
+<strong>注意</strong>：标题文字和<code>#</code>不能紧挨着，需要使用空格隔开，要不然会失效。还有标题的前后需要使用空行，要不也实现不了效果。</p>
+<pre><code>
+# 我是一号标题
+
+</code></pre><p>正确。</p>
+<pre><code># 我是一号标题
+</code></pre><p>错误，没有前后空行。</p>
+<pre><code>
+#我是一号标题
+
+</code></pre><p>错误,<code>#</code>后没有空格.</p>
+<h2 id="其他写法">其他写法</h2>
+<p>markdown的语法中给第一和第二标题给出了一种新写法。</p>
+<pre><code>Heading level 1
+=============
+
+Heading level 2
+---------------
+</code></pre><p>这种要求会低一些，不需要空格和空行</p>
+<h1 id="段落">段落</h1>
+<p>段落之间用空行隔开就行，注意段落开头不要使用缩进，这可能会被识别为代码段。</p>
+<h1 id="换行">换行</h1>
+<p>markdown中换行只按回车是不够的，需要在上一行的末尾加上两个以上的空格，要不然会自动拼接到一行来。可以尝试一下，下面就不举例了。
+空格是看不到的，如果你的markdown支持HTML，可以在末尾加上<code>&lt;br&gt;</code>来作为换行。</p>
+<h1 id="文字强调">文字强调</h1>
+<h2 id="加粗">加粗</h2>
+<p>文字加粗的话可以使用<code>**</code>、<code>__</code>来实现，如：<!-- raw HTML omitted -->
+<code>I am **bold text**  </code>   I am <strong>bold text</strong><br>
+<code>I am __bold text__  </code>   I am  <strong>bold text</strong></p>
+<p><strong>注意</strong>：<code>**</code>可以和字符连着用，比如说<code>a**bold text**a</code>，仍然会将bold text部分识别为加粗，但是<code>__</code>和字符连接将识别不出来。</p>
+<h2 id="斜体字">斜体字</h2>
+<p>斜体使用的是单个<code>*</code>和<code>_</code>，用法和两个的类似，要注意使用<code>_</code>时不要和外部的字符连接使用。</p>
+<h2 id="加粗加斜体">加粗加斜体</h2>
+<p>使用三个<code>*</code>或者<code>_</code>，要注意<code>_</code>的使用。</p>
+<h2 id="块引用">（块）引用</h2>
+<p>单行引用时，另起一个段落，在那一行的开头使用<code>&gt;</code>符号。若是多行引用，则另起一个段落，在这个段落的每一行的开头都加入<code>&gt;</code>符号。为了兼容性，最好在引用的前后空一行</p>
+<p>单行引用</p>
+<pre><code>&gt; Dorothy followed her through many of the beautiful rooms in her castle.
+</code></pre><p>效果</p>
+<blockquote>
+<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
+</blockquote>
+<p>多行引用</p>
+<pre><code>&gt; Dorothy followed her through many of the beautiful rooms in her castle.
+&gt;
+&gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+</code></pre><p>效果</p>
+<blockquote>
+<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
+<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</p>
+</blockquote>
+<h3 id="嵌套引用">嵌套引用</h3>
+<p>嵌套引用的部分再加一个<code>&gt;</code>即可。</p>
+<pre><code>&gt; Dorothy followed her through many of the beautiful rooms in her castle.
+&gt;
+&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+</code></pre><p>效果</p>
+<blockquote>
+<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
+<blockquote>
+<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</p>
+</blockquote>
+</blockquote>
+<h3 id="引用中添加其它元素">引用中添加其它元素</h3>
+<p>引用中可以添加前面或者后面学到的一些东西来处理文本，比如加粗，斜体等。</p>
+<h1 id="列表">列表</h1>
+<h2 id="有序列表">有序列表</h2>
+<p>在数字后加上<code>.</code>后跟空格即可。</p>
+<pre><code>1. first
+2. second
+3. third
+</code></pre><p>效果</p>
+<ol>
+<li>first</li>
+<li>second</li>
+<li>third</li>
+</ol>
+<p>注意：如果你想使用数字后加<code>.</code>但是不是为了加入序号，可以使用转义字符<code>\</code>。如<code>1982\.</code>，得到 1982.</p>
+<h2 id="无序列表">无序列表</h2>
+<p>无序列表的使用符号有<code>-</code>、<code>*</code>、<code>+</code>，使用方法和有序的一样，不过可以嵌套使用。如：</p>
+<pre><code>- First item
+- Second item
+- Third item
+    - Indented item
+    - Indented item
+- Fourth item
+</code></pre><ul>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item
+<ul>
+<li>Indented item</li>
+<li>Indented item</li>
+</ul>
+</li>
+<li>Fourth item</li>
+</ul>
+<p>注意：在同一级列表中要使用同一种符号，不可交叉使用。</p>
+<h2 id="在列表之间插入元素">在列表之间插入元素</h2>
+<p>在列表之间插入段落、引用、代码段、图片、列表等元素，但是想保持列表的连续性,可以在插入的那一段增加四个空格的缩进。（如果是使用四个空格来表示代码段的话，需要使用8个缩进)</p>
+<h1 id="代码段">代码（段）</h1>
+<p>标注行内代码时，使用 ` 符号，若是在代码中有 ` ，可以再外部使用两个 ` 嵌套。</p>
+<p>标注多行代码时，代码部分使用4格缩进。或者使用 ` ` `来标注。</p>
+<h1 id="水平线">水平线</h1>
+<p>使用水平线需要单独起一段，使用三个或以上<code>*</code>、<code>-</code>、<code>_</code>字符。</p>
+<p>注意：为了保证兼容性，最好是在水平线的前后各空一行。</p>
+<h1 id="加入链接">加入链接</h1>
+<p>链接部分分为显示内容，目标地址，标题，格式如下</p>
+<pre><code>[content](URL)
+</code></pre>
+<p>其中,URL部分可以是链接，可以是文章中的标题<br>
+markdown不能够处理URL中的空格，所以需要使用<code>%20</code>来替代空格</p>
+<p>例子</p>
+<pre><code>[百度](https://www.baidu.com)
+[返回代码（段）](#代码（段）)
+</code></pre>
+<p><a href="https://www.baidu.com" target="_blank" rel="noopener noreffer ">百度</a><br>
+<a href="#%e4%bb%a3%e7%a0%81%ef%bc%88%e6%ae%b5%ef%bc%89" rel="">返回代码（段）</a></p>
+<h2 id="加入标题">加入标题</h2>
+<p>在URL部分后将标题部分用双引号包裹，然后用空格区分开来，即可引入标题，其内容可在鼠标悬停在该部分内容时显现。</p>
+<p>举例</p>
+<pre><code>My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best search engine for privacy&quot;).
+</code></pre>
+<p>My favorite search engine is <a href="https://duckduckgo.com" title="The best search engine for privacy" target="_blank" rel="noopener noreffer ">Duck Duck Go</a>.</p>
+<h2 id="直接使用url或者email">直接使用URL或者Email</h2>
+<p>也可以直接用 &lt; &gt; 将URL或者Email包裹起来。</p>
+<p>例子</p>
+<pre><code>&lt;https://www.markdownguide.org&gt;
+&lt;fake@example.com&gt;
+</code></pre>
+<p><a href="https://www.markdownguide.org">https://www.markdownguide.org</a><br>
+<a href="mailto:fake@example.com">fake@example.com</a></p>
+<h2 id="引用类型的链接">引用类型的链接</h2>
+<p>引用类型分为两个部分，第一部分在正文中，使用两个中括号将内容包裹起来表示引用，另一个部分在文档中的某处（一般是最后），将这些引用的部分统一排列写出。</p>
+<h3 id="第一部分">第一部分</h3>
+<p>第一部分很简单，形式如下</p>
+<pre><code>[hobbit-hole][1]
+[hobbit-hole] [1]
+</code></pre>
+<h3 id="第二部分">第二部分</h3>
+<p>第二部分包含以下元素：</p>
+<pre><code>1. 标签，也就是序号，使用方括号包裹，后面紧跟一个分号。  
+2. URL，可以用尖括号包裹起来。  
+3. 可选择的标题，可以用双引号包裹，也可以使用括号包裹  
+</code></pre>
+<p>例子</p>
+<pre><code>[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle &quot;Hobbit lifestyles&quot;
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle 'Hobbit lifestyles'
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle (Hobbit lifestyles)
+[1]: &lt;https://en.wikipedia.org/wiki/Hobbit#Lifestyle&gt; &quot;Hobbit lifestyles&quot;
+[1]: &lt;https://en.wikipedia.org/wiki/Hobbit#Lifestyle&gt; 'Hobbit lifestyles'
+[1]: &lt;https://en.wikipedia.org/wiki/Hobbit#Lifestyle&gt; (Hobbit lifestyles)
+</code></pre>
+<p>引用类型的链接可以将第二部分放在任何地方，比如段落后或者文章末尾。但是最终呈现的效果与前面的引用类似。</p>
+<h1 id="引入图片">引入图片</h1>
+<p>引入图片和引入链接的方法类似，需要不同的是需要在方括号前加入<code>!</code><br>
+例子</p>
+<pre><code>![The San Juan Mountains are beautiful!](/assets/images/san-juan-mountains.jpg &quot;San Juan Mountains&quot;)
+</code></pre>
+<h2 id="图片链接">图片链接</h2>
+<p>让一个图片链接到另一个部分（网页或者标题），就让需要被链接的部分的标题换成图片链接即可。<br>
+例子</p>
+<pre><code>[![An old rock in the desert](/assets/images/shiprock.jpg &quot;Shiprock, New Mexico by Beau Rogers&quot;)](https://www.flickr.com/photos/beaurogers/31833779864/in/photolist-Qv3rFw-34mt9F-a9Cmfy-5Ha3Zi-9msKdv-o3hgjr-hWpUte-4WMsJ1-KUQ8N-deshUb-vssBD-6CQci6-8AFCiD-zsJWT-nNfsgB-dPDwZJ-bn9JGn-5HtSXY-6CUhAL-a4UTXB-ugPum-KUPSo-fBLNm-6CUmpy-4WMsc9-8a7D3T-83KJev-6CQ2bK-nNusHJ-a78rQH-nw3NvT-7aq2qf-8wwBso-3nNceh-ugSKP-4mh4kh-bbeeqH-a7biME-q3PtTf-brFpgb-cg38zw-bXMZc-nJPELD-f58Lmo-bXMYG-bz8AAi-bxNtNT-bXMYi-bXMY6-bXMYv)
+</code></pre>
+<h1 id="转义字符">转义字符</h1>
+<p>上述使用的特殊符号，如果你想直接打出来，而不是实现其可以实现的功能，可以使用<code>\</code>字符将其转义。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-08-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://Lonjiazeng.github.io/posts/basic_syntax/" data-title="markdown基础语法"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://Lonjiazeng.github.io/posts/basic_syntax/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://Lonjiazeng.github.io/posts/basic_syntax/" data-title="markdown基础语法"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://Lonjiazeng.github.io/posts/basic_syntax/" data-title="markdown基础语法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://Lonjiazeng.github.io/posts/basic_syntax/" data-title="markdown基础语法"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.68.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Lonjiazeng/" target="_blank">龙家增</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
