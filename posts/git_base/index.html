@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Git基础内容 - ljz&#39;s personal blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Git基础内容" />
+<meta property="og:description" content="本文为git的基础内容教程，参考来源于git官方开源书籍gitpro。 本文默认在linux操作系统上运行，若是在其他系统，如windows，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Lonjiazeng.github.io/posts/git_base/" />
+<meta property="article:published_time" content="2022-08-28T12:48:04+08:00" />
+<meta property="article:modified_time" content="2022-08-28T12:48:04+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git基础内容"/>
+<meta name="twitter:description" content="本文为git的基础内容教程，参考来源于git官方开源书籍gitpro。 本文默认在linux操作系统上运行，若是在其他系统，如windows，"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://Lonjiazeng.github.io/posts/git_base/" /><link rel="prev" href="http://Lonjiazeng.github.io/posts/basic_syntax/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Git基础内容",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/Lonjiazeng.github.io\/posts\/git_base\/"
+        },"genre": "posts","wordcount":  2121 ,
+        "url": "http:\/\/Lonjiazeng.github.io\/posts\/git_base\/","datePublished": "2022-08-28T12:48:04+08:00","dateModified": "2022-08-28T12:48:04+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Jiazeng Long"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="ljz&#39;s personal blog">Just for fun</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="ljz&#39;s personal blog">Just for fun</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git基础内容</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-28">2022-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2121 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-配置和帮助">0. 配置和帮助</a>
+      <ul>
+        <li><a href="#01-配置命令">0.1 配置命令</a></li>
+        <li><a href="#02-基础配置">0.2 基础配置</a></li>
+        <li><a href="#03-获取帮助">0.3 获取帮助</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-git基础">1. Git基础</a>
+      <ul>
+        <li><a href="#11-文件状态变化周期">1.1 文件状态变化周期</a></li>
+        <li><a href="#12-git仓库初始化">1.2 git仓库初始化</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-将文件更新记录到仓库">2. 将文件更新记录到仓库</a>
+      <ul>
+        <li><a href="#文件状态检查">文件状态检查</a></li>
+        <li><a href="#跟踪新文件">跟踪新文件</a></li>
+        <li><a href="#忽略文件">忽略文件</a></li>
+        <li><a href="#查看文件修改的内容">查看文件修改的内容</a></li>
+        <li><a href="#提交">提交</a></li>
+        <li><a href="#移除文件">移除文件</a></li>
+        <li><a href="#移动文件">移动文件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><em><strong>本文为git的基础内容教程，参考来源于git官方开源书籍gitpro。</strong></em></p>
+<p><em><strong>本文默认在linux操作系统上运行，若是在其他系统，如windows，打开git bash即可。至于git的安装，请自行SFTW</strong></em></p>
+<h2 id="0-配置和帮助">0. 配置和帮助</h2>
+<h3 id="01-配置命令">0.1 配置命令</h3>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>git的配置命令为<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git config &lt;flag&gt; &lt;your command&gt;</div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>git共有三个配置文件：<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ol>
+<li>/etc/gitconfig 文件：是机器上所有用户通用的文件。要修改此内容，可以加上<code>--system</code> flag。</li>
+<li>~/.gitconfig 文件：是当前用户使用的git配置文件。修改此内容，可以加上<code>--global</code> falg。</li>
+<li>当前仓库中的配置文件（.git/config）：只针对该仓库，要修改时在仓库目录下使用不加上述两种flag的命令即可<br>
+具体配置的优先级从上往下依次升高。</li>
+</ol></div>
+        </div>
+    </div>
+<h3 id="02-基础配置">0.2 基础配置</h3>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>配置用户信息<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>git config [&lt;flag&gt;] user.name &ldquo;你的名字&rdquo;</p>
+<p>git config [&lt;flag&gt;] user.email &ldquo;你的邮箱&rdquo;</p>
+</div>
+        </div>
+    </div>
+<p>上述引号内的内容，如果没有空格，双引号可以省略。</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>配置默认的编辑器<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git config [<!-- raw HTML omitted -->] core.editor &ldquo;你想使用的编辑器&rdquo;</div>
+        </div>
+    </div>
+<p>这个可能会使用，但是不设置也可以。</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Tips<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">想要查看当前的配置信息，可以使用<code>git config --list</code>命令。<br>
+如果想要查看某一项配置，可以使用<code>git config &lt;配置名&gt;</code>。例如<code>git config user.name</code></div>
+        </div>
+    </div>
+<h3 id="03-获取帮助">0.3 获取帮助</h3>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>获取帮助的形式有以下三种，都是等价的:<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>git help &lt;verb&gt;</p>
+<p>git &lt;verb&gt; &ndash;help</p>
+<p>man git-&lt;verb&gt;</p>
+</div>
+        </div>
+    </div>
+<p>上述<code>verb</code>的内容为你想查看的git命令，如<code>git help config</code>或者<code>man git-config</code>都是可以的。注意第三种，需要用<code>-</code>将其连接起来。</p>
+<h2 id="1-git基础">1. Git基础</h2>
+<h3 id="11-文件状态变化周期">1.1 文件状态变化周期</h3>
+<figure>
+    <img src="/8AF8422685F6C52A5B4CBB431A7D0088.png"/> <figcaption>
+            <h4>文件状态变化周期</h4>
+        </figcaption>
+</figure>
+
+<p><strong>git的文件状态变化周期是理解本地git仓库的关键</strong></p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>以下为《git pro》中文版翻译对此的介绍:<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>现在我们的机器上有了一个<strong>真实项目</strong>的 Git 仓库,并从这个仓库中检出了所有文件的<strong>工作副本</strong>。 通常,你会对这些文件做些修改,每当完成了一个阶段的目标,想要将记录下它时,就将它提交到仓库。</p>
+<p>请记住,你工作目录下的每一个文件都不外乎这两种状态:<strong>已跟踪</strong> 或 <strong>未跟踪</strong>。 已跟踪的文件是指那些被纳入了版本控制的文件,在上一次快照中有它们的记录,在工作一段时间后, 它们的状态可能是未修改,已修改或已放入暂存区。简而言之,已跟踪的文件就是 Git 已经知道的文件。</p>
+<p>工作目录中除已跟踪文件外的其它所有文件都属于未跟踪文件,它们既不存在于上次快照的记录中,也没有被放入暂存区。 初次克隆某个仓库的时候,工作目录中的所有文件都属于已跟踪文件,并处于未修改状态,因为 Git 刚刚检出了它们, 而你尚未编辑过它们。</p>
+<p>编辑过某些文件之后,由于自上次提交后你对它们做了修改,Git 将它们标记为已修改文件。 在工作时,你可以选择性地将这些修改过的文件放入暂存区,然后提交所有已暂存的修改,如此反复。</p>
+</div>
+        </div>
+    </div>
+<p>其中，未跟踪对应图中的<code>Untracked</code>，已跟踪对应剩下三个.</p>
+<h3 id="12-git仓库初始化">1.2 git仓库初始化</h3>
+<p>首先，进入你想要建立仓库的文件夹，然后输入命令</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>仓库初始化<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git init</div>
+        </div>
+    </div>
+<p>然后git就会在当前文件夹下创建一个<code>.git</code>隐藏文件夹。这个文件夹中有版本管理必须的文件，删除后该仓库就被销毁，之前的版本管理将丢失。</p>
+<p>使用命令之后只是新建了一个git仓库，但是当前文件夹下的其他文件尚未被加入版本管理中，也就是处于<code>Untracked</code>状态。<br>
+此时使用<code>git add &lt;文件名&gt;</code>将你需要管理的文件加入到<code>Stage</code>状态。然后再使用<code>git commit -m &quot;有关信息&quot;</code>命令将其提交，此时该文件将转换为<code>Unmodified</code>状态。</p>
+<p>另一种建立仓库的方式是克隆别人的仓库，命令为:</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>克隆仓库<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git clone &lt;url&gt; [name]</div>
+        </div>
+    </div>
+<p>该命令将直接拷贝别人的仓库到你的本地文件夹中。</p>
+<div class="details admonition example open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-list-ol fa-fw" aria-hidden="true"></i>例子<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git clone <a href="https://github.com/Lonjiazeng/spinalDemo.git">https://github.com/Lonjiazeng/spinalDemo.git</a></div>
+        </div>
+    </div>
+<h2 id="2-将文件更新记录到仓库">2. 将文件更新记录到仓库</h2>
+<h3 id="文件状态检查">文件状态检查</h3>
+<p>使用以下命令可以检查当前git仓库下所有文件的状态：</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>状态检查<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git status</div>
+        </div>
+    </div>
+<p>如果在当前文件夹下新建文件，新建的文件将处于未跟踪状态。</p>
+<h3 id="跟踪新文件">跟踪新文件</h3>
+<p>使用如下命令跟踪新的文件，将其加入到暂存状态：
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>Stage<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git add &lt;文件名&gt;</div>
+        </div>
+    </div></p>
+<p>也可以使用该命令将处于已修改状态的文件加入到暂存。</p>
+<h3 id="忽略文件">忽略文件</h3>
+<p>有些文件你不想加入版本管理，但是又处于当前仓库中，你希望git不要处理这些文件，可以使用.gitignore文件来将其忽略。<br>
+.gitignore文件中写入你不想跟踪的文件，支持正则表达式。</p>
+<h3 id="查看文件修改的内容">查看文件修改的内容</h3>
+<p>当你想看处于修改状态的文件和已暂存的文件有哪些修改过的地方，可以使用以下命令：</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i> <i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git diff</div>
+        </div>
+    </div>
+<p>最终以行首使用<code>+</code>、<code>-</code>来标识增加了哪一行，减少了哪一行。</p>
+<p>若要比较已暂存的和上一次提交的内容，加入<code>--staged</code>即可</p>
+<h3 id="提交">提交</h3>
+<p>如果暂存区的文件已准备好，可以使用以下命令提交</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>提交<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git commit</div>
+        </div>
+    </div>
+<p>该命令将启动你的默认编辑器（如果前面未设置的话）来对本次提交做一些备注，以便于区分。或者你可以直接使用如下命令直接提交而不启动编辑器：</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>不启动编辑器提交<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git commit -m &ldquo;备注信息&rdquo;</div>
+        </div>
+    </div>
+<p>使用以下命令可以不用暂存直接提交，它会将已经追踪的文件全部及提交。只需要加上<code>-a</code>标志。</p>
+<h3 id="移除文件">移除文件</h3>
+<p>使用以下命令可以将文件从版本控制系统中移除。</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>git rm<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git rm &lt;文件名&gt;</div>
+        </div>
+    </div>
+<p>加上<code>-f</code>表示强制移除，就算此文件已经在暂存区中。</p>
+<h3 id="移动文件">移动文件</h3>
+<p>使用以下命令可以将文件在仓库中移动或者重命名</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>git mv<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git mv &lt;文件名&gt;</div>
+        </div>
+    </div>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>git mv 命令的意义在于其操作相当于没有该命令时的以下三条命令，且下面的命令在git中记录也并不像git mv那般简单清晰。</p>
+<pre><code>mv PathA PathB
+git rm PathA
+git add PathB
+</code></pre>
+</div>
+        </div>
+    </div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-08-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://Lonjiazeng.github.io/posts/git_base/" data-title="Git基础内容"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://Lonjiazeng.github.io/posts/git_base/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://Lonjiazeng.github.io/posts/git_base/" data-title="Git基础内容"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://Lonjiazeng.github.io/posts/git_base/" data-title="Git基础内容"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://Lonjiazeng.github.io/posts/git_base/" data-title="Git基础内容"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/basic_syntax/" class="prev" rel="prev" title="markdown基础语法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>markdown基础语法</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.68.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Lonjiazeng/" target="_blank">Jiazeng Long</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
