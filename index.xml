@@ -4,9 +4,17 @@
         <link>http://Lonjiazeng.github.io/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jz.long@qq.com (Jiazeng Long)</managingEditor>
-            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><lastBuildDate>Thu, 25 Aug 2022 10:50:22 &#43;0800</lastBuildDate>
+            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><lastBuildDate>Sun, 28 Aug 2022 12:48:04 &#43;0800</lastBuildDate>
             <atom:link href="http://Lonjiazeng.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Git基础内容</title>
+    <link>http://Lonjiazeng.github.io/posts/git_base/</link>
+    <pubDate>Sun, 28 Aug 2022 12:48:04 &#43;0800</pubDate>
+    <author>Jiazeng Long</author>
+    <guid>http://Lonjiazeng.github.io/posts/git_base/</guid>
+    <description><![CDATA[本文为git的基础内容教程，参考来源于git官方开源书籍gitpro。 本文默认在linux操作系统上运行，若是在其他系统，如windows，]]></description>
+</item>
+<item>
     <title>markdown基础语法</title>
     <link>http://Lonjiazeng.github.io/posts/basic_syntax/</link>
     <pubDate>Thu, 25 Aug 2022 10:50:22 &#43;0800</pubDate>

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/Lonjiazeng.github.io\/posts\/git_base\/"
-        },"genre": "posts","wordcount":  2121 ,
+        },"genre": "posts","wordcount":  2299 ,
         "url": "http:\/\/Lonjiazeng.github.io\/posts\/git_base\/","datePublished": "2022-08-28T12:48:04+08:00","dateModified": "2022-08-28T12:48:04+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git基础内容</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-28">2022-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2121 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-28">2022-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2299 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -102,10 +102,12 @@
         <li><a href="#移动文件">移动文件</a></li>
       </ul>
     </li>
+    <li><a href="#查看历史记录">查看历史记录</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><em><strong>本文为git的基础内容教程，参考来源于git官方开源书籍gitpro。</strong></em></p>
 <p><em><strong>本文默认在linux操作系统上运行，若是在其他系统，如windows，打开git bash即可。至于git的安装，请自行SFTW</strong></em></p>
+<p><em><strong>本文为了简洁，删减了一些命令的输出展示，建议读者在阅读的过程中手动敲一下代码，查看命令的输出，有助于学习。</strong></em></p>
 <h2 id="0-配置和帮助">0. 配置和帮助</h2>
 <h3 id="01-配置命令">0.1 配置命令</h3>
 <div class="details admonition quote open">
@@ -317,6 +319,12 @@ git add PathB
 </div>
         </div>
     </div>
+<h2 id="查看历史记录">查看历史记录</h2>
+<p>git中查看历史记录的核心代码为：</p>
+<pre><code>git log
+</code></pre>
+<p>这个命令比较灵活，可以搭配flag使用。<br>
+这个命令的flag比较多，但是大致可以分为两类。一类是直接使用的类型，这种类型可以直接加上flag后直接使用。另一类是加上flag后需要带上一些具体的值来使用。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
