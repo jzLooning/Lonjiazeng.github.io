@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/Lonjiazeng.github.io\/posts\/git_base\/"
-        },"genre": "posts","wordcount":  2299 ,
+        },"genre": "posts","wordcount":  2791 ,
         "url": "http:\/\/Lonjiazeng.github.io\/posts\/git_base\/","datePublished": "2022-08-28T12:48:04+08:00","dateModified": "2022-08-28T12:48:04+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,8 +69,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git基础内容</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-28">2022-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2299 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-28">2022-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2791 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -176,12 +176,16 @@
 <p>上述<code>verb</code>的内容为你想查看的git命令，如<code>git help config</code>或者<code>man git-config</code>都是可以的。注意第三种，需要用<code>-</code>将其连接起来。</p>
 <h2 id="1-git基础">1. Git基础</h2>
 <h3 id="11-文件状态变化周期">1.1 文件状态变化周期</h3>
-<figure>
-    <img src="/8AF8422685F6C52A5B4CBB431A7D0088.png"/> <figcaption>
-            <h4>文件状态变化周期</h4>
-        </figcaption>
-</figure>
-
+<figure><a class="lightgallery" href="/8AF8422685F6C52A5B4CBB431A7D0088.png" title="/8AF8422685F6C52A5B4CBB431A7D0088.png" data-thumbnail="/8AF8422685F6C52A5B4CBB431A7D0088.png" data-sub-html="<h2>文件状态变化周期</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/8AF8422685F6C52A5B4CBB431A7D0088.png"
+            data-srcset="/8AF8422685F6C52A5B4CBB431A7D0088.png, /8AF8422685F6C52A5B4CBB431A7D0088.png 1.5x, /8AF8422685F6C52A5B4CBB431A7D0088.png 2x"
+            data-sizes="auto"
+            alt="/8AF8422685F6C52A5B4CBB431A7D0088.png" />
+    </a><figcaption class="image-caption">文件状态变化周期</figcaption>
+    </figure>
 <p><strong>git的文件状态变化周期是理解本地git仓库的关键</strong></p>
 <div class="details admonition info open">
         <div class="details-summary admonition-title">
@@ -323,8 +327,99 @@ git add PathB
 <p>git中查看历史记录的核心代码为：</p>
 <pre><code>git log
 </code></pre>
-<p>这个命令比较灵活，可以搭配flag使用。<br>
-这个命令的flag比较多，但是大致可以分为两类。一类是直接使用的类型，这种类型可以直接加上flag后直接使用。另一类是加上flag后需要带上一些具体的值来使用。</p>
+<p>这个命令的flag比较多，但是大致可以分为两类。一类是直接使用的类型，这种类型可以直接加上flag后直接使用。另一类是加上flag后需要带上一些具体的值来使用。</p>
+<p><strong>不用带值的flag</strong></p>
+<table>
+<thead>
+<tr>
+<th>flag</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-&lt;n&gt;</td>
+<td>n用具体的数字，显示最近的n条提交记录</td>
+</tr>
+<tr>
+<td>-p,&ndash;patch</td>
+<td>显示每次提交所引入的差异</td>
+</tr>
+<tr>
+<td>&ndash;stat</td>
+<td>在每次提交下面列出该次提交的统计数据,最后还有一个总结</td>
+</tr>
+<tr>
+<td>&ndash;relative-date</td>
+<td>使用相对时间而不是具体的时间</td>
+</tr>
+<tr>
+<td>&ndash;graph</td>
+<td>增加一些ASCII字符以图形显示分支与合并历史</td>
+</tr>
+</tbody>
+</table>
+<p><strong>带值的flag</strong></p>
+<table>
+<thead>
+<tr>
+<th>flag</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&ndash;pretty</td>
+<td>自定义输出的格式，可选项为oneline,short,full,fuller,format</td>
+</tr>
+<tr>
+<td>&ndash;since,&ndash;after,&ndash;until,&ndash;before</td>
+<td>指定时间的提交</td>
+</tr>
+<tr>
+<td>&ndash;author</td>
+<td>指定作者与给定字符串匹配的提交</td>
+</tr>
+<tr>
+<td>&ndash;commiter</td>
+<td>指定提交者与给定字符串匹配的提交</td>
+</tr>
+<tr>
+<td>&ndash;grep</td>
+<td>指定提交说明与给定字符串匹配的提交</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>指定添加或删除内容与给定字符串匹配的提交</td>
+</tr>
+</tbody>
+</table>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>解释<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><code>--pretty</code>：oneline表示讲内容简化，将每次提交使用一行显示；format是重定义输出格式，可以给一个字符串指定输出内容，如<code>git log --pretty=format:&quot;%h %s&quot;</code>,或者等价地<code>git log --pretty=&quot;%h %s&quot;</code>。下面将给出format常用属性。</div>
+        </div>
+    </div>
+<figure><a class="lightgallery" href="/IMG_0376.png" title="/IMG_0376.png" data-thumbnail="/IMG_0376.png" data-sub-html="<h2>&ndash;pretty=format常用格式</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/IMG_0376.png"
+            data-srcset="/IMG_0376.png, /IMG_0376.png 1.5x, /IMG_0376.png 2x"
+            data-sizes="auto"
+            alt="/IMG_0376.png" />
+    </a><figcaption class="image-caption">&ndash;pretty=format常用格式</figcaption>
+    </figure>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>解释<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><code>--since,--after,--until,--before</code>:时间支持两种格式。一种为具体的时间，如“<code>2022-08-23</code>”；另一种为相对时间,如”<code>2 years 1day 3 minutes ago</code>”。</div>
+        </div>
+    </div>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
