@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/Lonjiazeng.github.io\/posts\/git_base\/"
-        },"genre": "posts","wordcount":  2792 ,
+        },"genre": "posts","wordcount":  3705 ,
         "url": "http:\/\/Lonjiazeng.github.io\/posts\/git_base\/","datePublished": "2022-08-28T12:48:04+08:00","dateModified": "2022-08-28T12:48:04+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,8 +69,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git基础内容</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-28">2022-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2792 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-28">2022-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3705 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -103,6 +103,32 @@
       </ul>
     </li>
     <li><a href="#3-查看历史记录">3. 查看历史记录</a></li>
+    <li><a href="#4撤销操作">4.撤销操作</a>
+      <ul>
+        <li><a href="#覆盖上次提交">覆盖上次提交</a></li>
+        <li><a href="#取消暂存的文件">取消暂存的文件</a></li>
+        <li><a href="#撤销对文件的修改">撤销对文件的修改</a></li>
+      </ul>
+    </li>
+    <li><a href="#5远程仓库使用">5.远程仓库使用</a>
+      <ul>
+        <li><a href="#查看远程仓库">查看远程仓库</a></li>
+        <li><a href="#添加远程仓库">添加远程仓库</a></li>
+        <li><a href="#从远程仓库抓取与拉取">从远程仓库抓取与拉取</a></li>
+        <li><a href="#推送代码到远程仓库">推送代码到远程仓库</a></li>
+        <li><a href="#查看某个远程仓库">查看某个远程仓库</a></li>
+        <li><a href="#远程仓库的重命名与移除">远程仓库的重命名与移除</a></li>
+      </ul>
+    </li>
+    <li><a href="#6打标签">6.打标签</a>
+      <ul>
+        <li><a href="#列出标签">列出标签</a></li>
+        <li><a href="#创建标签">创建标签</a></li>
+        <li><a href="#共享标签">共享标签</a></li>
+        <li><a href="#删除标签">删除标签</a></li>
+      </ul>
+    </li>
+    <li><a href="#7git别名">7.git别名</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><em><strong>本文为git的基础内容教程，参考来源于git官方开源书籍gitpro。</strong></em></p>
@@ -420,6 +446,183 @@ git add PathB
             <div class="admonition-content"><code>--since,--after,--until,--before</code>:时间支持两种格式。一种为具体的时间，如“<code>2022-08-23</code>”；另一种为相对时间,如”<code>2 years 1day 3 minutes ago</code>”。</div>
         </div>
     </div>
+<h2 id="4撤销操作">4.撤销操作</h2>
+<h3 id="覆盖上次提交">覆盖上次提交</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>此操作会覆盖上次的提交<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git commit &ndash;amend</div>
+        </div>
+    </div>
+<h3 id="取消暂存的文件">取消暂存的文件</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git reset HEAD &lt;file&gt;</div>
+        </div>
+    </div>
+<h3 id="撤销对文件的修改">撤销对文件的修改</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git restore &lt;file&gt;</div>
+        </div>
+    </div>
+<h2 id="5远程仓库使用">5.远程仓库使用</h2>
+<h3 id="查看远程仓库">查看远程仓库</h3>
+<p><div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git remote [-v]</div>
+        </div>
+    </div>
+没有-v命令的时只是列出远程仓库的简写名，加上-v命令时会列出远程仓库的简写名和对应的url。</p>
+<p>使用git clone 命令时会自动将克隆仓库的url加入远程仓库。默认简写为origin</p>
+<h3 id="添加远程仓库">添加远程仓库</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git remote add &lt;shortname&gt; &lt;url&gt;</div>
+        </div>
+    </div>
+<h3 id="从远程仓库抓取与拉取">从远程仓库抓取与拉取</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git fetch &lt;remote&gt;</div>
+        </div>
+    </div>
+<p>此命令访问远程仓库，抓取本地还没有的数据。</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git pull &lt;remote&gt;</div>
+        </div>
+    </div>
+<p>抓取所有远程引用，然后将远程master分支合并到本地master分支。</p>
+<h3 id="推送代码到远程仓库">推送代码到远程仓库</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git push &lt;remote&gt; &lt;branch&gt;</div>
+        </div>
+    </div>
+<p>需要有该远程仓库的写入权限，并且从上次拉取仓库前都没有人推送。否则需要先拉取代码进行合并，然后才能推送。</p>
+<h3 id="查看某个远程仓库">查看某个远程仓库</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git remote show &lt;remote&gt;</div>
+        </div>
+    </div>
+<h3 id="远程仓库的重命名与移除">远程仓库的重命名与移除</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>重命名<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git remote rename &lt;oldname&gt; &lt;newname&gt;</div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>移除<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git remote remove &lt;remote&gt;</div>
+        </div>
+    </div>
+<p>删除了远程仓库，其远程分支和相应的配置信息也会被删除</p>
+<h2 id="6打标签">6.打标签</h2>
+<h3 id="列出标签">列出标签</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git tag [-l] [tagname]</div>
+        </div>
+    </div>
+<p>只使用<code>git tag</code>时，列出所有标签。当你想要查看指定的标签时，可以加上<code>-l</code>然后再跟上你想要查找的标签名，标签名支持通配符。当不用于查找特定名字时，<code>-l</code>是可选的，但是要带上查找的特定名字时，就必须带上<code>-l</code>。</p>
+<h3 id="创建标签">创建标签</h3>
+<p>标签主要有两种，一种是轻量标签（lightweight），另一种是附注标签（annotated）。</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>附注标签<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git tag -a &lt;tagname&gt; [hashcode] -m &lt;message&gt;</div>
+        </div>
+    </div>
+<p>当不选用<code>hashcode</code>时,默认给上次提交打标签，当需要给过去的版本打标签时可以加上对应版本的<code>hashcode</code>。</p>
+<p>使用<code>git show &lt;tagname&gt;</code>可以看到标签信息和对应的版本的信息</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>轻量标签<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git tag  &lt;tagname&gt; [hashcode]</div>
+        </div>
+    </div>
+<h3 id="共享标签">共享标签</h3>
+<p>使用<code>git push</code>命令时默认不会将标签上传，需要我们像共享分支一样将其发送到远程仓库。</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>共享单个标签到远程仓库<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git push &lt;remote&gt;  &lt;tagname&gt;</div>
+        </div>
+    </div>
+<p>如果想一次性将所有不在远程仓库的标签全部推送上去，可以使用<code>git push --tags</code>命令。但是这个会将轻量标签和附注标签都推送上去。</p>
+<h3 id="删除标签">删除标签</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>删除本地仓库的标签<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git tags -d &lt;tagname&gt;</div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>删除本地标签后推送到远程仓库<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git push &lt;remote&gt;  :refs/tags/&lt;tagname&gt;<br>
+或者<br>
+git push &lt;remote&gt; &ndash;delete &lt;tagname&gt;</div>
+        </div>
+    </div>
+<h2 id="7git别名">7.git别名</h2>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>设置别名<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">git config &ndash;global alias.&lt;shortname&gt; <!-- raw HTML omitted --></div>
+        </div>
+    </div>
+<p>例如<code>git config --global alias.co checkout</code>,运行后当你运行<code>git co ...</code>命令时就相当与运行<code>git checkout ...</code>。</p>
+<p><em><strong>git的基础内容就到此结束，更多有关git内容请看别的文章~</strong></em></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
