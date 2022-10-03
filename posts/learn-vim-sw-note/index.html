@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>vim的学习笔记 - ljz&#39;s personal blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="vim的学习笔记" />
+<meta property="og:description" content="本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置后在切换buffer时不会" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/" />
+<meta property="article:published_time" content="2022-10-02T09:51:30+08:00" />
+<meta property="article:modified_time" content="2022-10-02T09:51:30+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="vim的学习笔记"/>
+<meta name="twitter:description" content="本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置后在切换buffer时不会"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/" /><link rel="prev" href="http://Lonjiazeng.github.io/posts/git_base/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "vim的学习笔记",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/"
+        },"genre": "posts","wordcount":  1245 ,
+        "url": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/","datePublished": "2022-10-02T09:51:30+08:00","dateModified": "2022-10-02T09:51:30+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Jiazeng Long"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="ljz&#39;s personal blog">Just for fun</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="ljz&#39;s personal blog">Just for fun</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">vim的学习笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1245 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#ch2-缓冲区窗口和选项卡">ch2 缓冲区，窗口和选项卡</a>
+      <ul>
+        <li><a href="#缓冲区">缓冲区</a></li>
+        <li><a href="#窗口">窗口</a></li>
+        <li><a href="#选项卡">选项卡</a></li>
+      </ul>
+    </li>
+    <li><a href="#ch3-打开和搜索文件">ch3 打开和搜索文件</a>
+      <ul>
+        <li><a href="#打开和编辑文件">打开和编辑文件</a></li>
+        <li><a href="#使用find命令搜索">使用find命令搜索</a></li>
+        <li><a href="#使用grep在文件中搜索">使用grep在文件中搜索</a></li>
+        <li><a href="#quickfix窗口">quickfix窗口</a></li>
+        <li><a href="#使用fzf和ripgrep插件">使用fzf和ripgrep插件</a></li>
+        <li><a href="#将grep替换为rg">将grep替换为Rg</a></li>
+        <li><a href="#在多文件中搜索和替换">在多文件中搜索和替换</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><em><strong>本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，<a href="https://github.com/wsdjeg/Learn-Vim_zh_cn" title="访问原文" target="_blank" rel="noopener noreffer ">原文地址</a>。</strong></em></p>
+<h2 id="ch2-缓冲区窗口和选项卡">ch2 缓冲区，窗口和选项卡</h2>
+<h3 id="缓冲区">缓冲区</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><code>set hidden</code>
+设置后在切换buffer时不会有未保存文件提示。</p>
+<p><code>source %</code>
+加载本文件配置</p>
+<p><code>:bnext</code>,<code>:bprevious</code>
+切换至下一个，前一个buffer，可简写为<code>bn</code>，<code>bp</code></p>
+<p><code>Ctrl+i</code>,<code>Ctrl+o</code>
+跳转至跳转列表中的新、旧位置</p>
+<p><code>Ctrl+^</code>
+跳转至先前编辑过的buffer</p>
+<p><code>:bdelete n</code>
+删除创建的buffer，n可省略，可缩写为<code>bd</code></p>
+</div>
+        </div>
+    </div>
+<h3 id="窗口">窗口</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><code>:vsplit file</code>
+垂直分割窗口,并打开文件</p>
+<p><code>:split file</code>
+水平分割窗口，并打开文件</p>
+<p><code>:new file</code>
+创建一个新窗口，并打开文件</p>
+<p><code>Ctrl+W+[HJKL]&gt;</code>
+上下左右移动光标至对应的窗口</p>
+<p><code>ctrl+w+[vsco]</code>
+垂直分割窗口、水平分割窗口、关闭窗口、关闭除了当前窗口的其它窗口。</p>
+</div>
+        </div>
+    </div>
+<h3 id="选项卡">选项卡</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><code>:tabnew file.txt</code>    在tab中打开一个文件</p>
+<p><code>:tabclose</code>           关闭当前tab</p>
+<p><code>:tabnext</code>           切换至下一个tab</p>
+<p><code>:tabprevious</code>        切换至前一个tab</p>
+<p><code>:tablast</code>            切换至最后一个tab</p>
+<p><code>:tabfirst</code>           切换至第一个tab</p>
+</div>
+        </div>
+    </div>
+<h2 id="ch3-打开和搜索文件">ch3 打开和搜索文件</h2>
+<h3 id="打开和编辑文件">打开和编辑文件</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><code>edit file</code> 在vim中打开文件</div>
+        </div>
+    </div>
+<h3 id="使用find命令搜索">使用find命令搜索</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><code>:find</code>命令根据path选项配置的路径查找文件</p>
+<p><code>set path?</code>查看路径</p>
+</div>
+        </div>
+    </div>
+<h3 id="使用grep在文件中搜索">使用grep在文件中搜索</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><code>:vim /pattern/ file</code> 内置grep,两个部分都可以使用通配符,使用quickfix进行处理</p>
+<p><code>:grep</code> 调用外部grep，默认调用终端grep，可以通过变量grepprg修改</p>
+</div>
+        </div>
+    </div>
+<h3 id="quickfix窗口">quickfix窗口</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><code>:copen</code>        打开quickfix窗口</p>
+<p><code>:cclose</code>       关闭quickfix窗口</p>
+<p><code>:cnext</code>        跳到下一个错误</p>
+<p><code>:cprevious</code>    跳到前一个错误</p>
+<p><code>:colder</code>       跳到旧的错误列表</p>
+<p><code>:cnewer</code>      跳到新的错误列表</p>
+</div>
+        </div>
+    </div>
+<h3 id="使用fzf和ripgrep插件">使用fzf和ripgrep插件</h3>
+<h4 id="安装">安装</h4>
+<p>插件地址<a href="https://github.com/junegunn/fzf" title="访问fzf的GitHub仓库" target="_blank" rel="noopener noreffer ">fzf</a>, <a href="https://github.com/BurntSushi/ripgrep" title="访问ripgrep的GitHub仓库" target="_blank" rel="noopener noreffer ">ripgrep</a></p>
+<p>往<code>.zshrc</code>中添加下列代码（若是其它shell，请修改相应的<code>.*rc</code>文件）</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="k">if</span> <span class="nb">type</span> rg <span class="p">&amp;</span>&gt; /dev/null<span class="p">;</span> <span class="k">then</span>
+  <span class="nb">export</span> <span class="nv">FZF_DEFAULT_COMMAND</span><span class="o">=</span><span class="s1">&#39;rg --files&#39;</span>
+  <span class="nb">export</span> <span class="nv">FZF_DEFAULT_OPTS</span><span class="o">=</span><span class="s1">&#39;-m&#39;</span>
+<span class="k">fi</span>
+</code></pre></div><p><code>FZF_DEFAULT_OPTS</code>中的<code>-m</code>允许我们按下<code>&lt;TAB&gt;</code>和<code>&lt;S-TAB&gt;</code>进行多重选择</p>
+<p>安装好之后还需要在<code>.vimrc</code>中安装fzf插件</p>
+<pre><code class="language-vimscript" data-lang="vimscript">Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -&gt; fzf#install() } }
+</code></pre><h4 id="fzf语法">fzf语法</h4>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li>
+<p><code>^</code> 表示前缀精确匹配。要搜索一个以&quot;welcome&quot;开头的短语：<code>^welcom</code>。</p>
+</li>
+<li>
+<p><code>$</code> 表示后缀精确匹配。要搜索一个以&quot;my friends&quot;结尾的短语：<code>friends$</code>。</p>
+</li>
+<li>
+<p><code>'</code> 表示精确匹配。要搜索短语&quot;welcom my friends&rdquo;：<code>'welcom my friends</code>。</p>
+</li>
+<li>
+<p><code>|</code> 表示&quot;或者&quot;匹配。要搜索&quot;friends&quot;或&quot;foes&rdquo;：<code>friends | foes</code>。</p>
+</li>
+<li>
+<p><code>!</code> 表示反向匹配。要搜索一个包含&quot;welcome&quot;但不包含&quot;friends&quot;的短语：<code>welcome !friends</code>。</p>
+</li>
+</ul>
+</div>
+        </div>
+    </div>
+<h4 id="查找文件">查找文件</h4>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>命令<code>:Files</code></p>
+<p>我自己使用的是插件LeaderF,映射到快捷键<code>&lt;Leader&gt;F</code>。</p>
+<p>或者使用NERDTree插件，我将其快捷键映射到<code>&lt;Leader&gt;e</code>。</p>
+</div>
+        </div>
+    </div>
+<p>附上<a href="https://github.com/Yggdroot/LeaderF" title="LeaderF的git仓库" target="_blank" rel="noopener noreffer ">LeaderF官方仓库</a> 和 <a href="https://github.com/preservim/nerdtree" title="NERDTree的git仓库" target="_blank" rel="noopener noreffer ">NERDTree官方仓库</a></p>
+<h4 id="文件中查找">文件中查找</h4>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">命令<code>:RG</code></div>
+        </div>
+    </div>
+<h3 id="将grep替换为rg">将grep替换为Rg</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>将其加入到<code>.vimrc</code>中</p>
+<pre><code>set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+</code></pre><p>此时再使用<code>:grep</code>命令将使用上述的命令，而不是<code>grep</code></p>
+</div>
+        </div>
+    </div>
+<h3 id="在多文件中搜索和替换">在多文件中搜索和替换</h3>
+<p>这部分先鸽了🤣</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-10-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/" data-title="vim的学习笔记"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/" data-title="vim的学习笔记"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/" data-title="vim的学习笔记"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/" data-title="vim的学习笔记"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/git_base/" class="prev" rel="prev" title="Git基础内容"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Git基础内容</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.68.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Lonjiazeng/" target="_blank">Jiazeng Long</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

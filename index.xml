@@ -4,9 +4,17 @@
         <link>http://Lonjiazeng.github.io/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jz.long@qq.com (Jiazeng Long)</managingEditor>
-            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><lastBuildDate>Sun, 28 Aug 2022 12:48:04 &#43;0800</lastBuildDate>
+            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><lastBuildDate>Sun, 02 Oct 2022 09:51:30 &#43;0800</lastBuildDate>
             <atom:link href="http://Lonjiazeng.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>vim的学习笔记</title>
+    <link>http://Lonjiazeng.github.io/posts/learn-vim-sw-note/</link>
+    <pubDate>Sun, 02 Oct 2022 09:51:30 &#43;0800</pubDate>
+    <author>Jiazeng Long</author>
+    <guid>http://Lonjiazeng.github.io/posts/learn-vim-sw-note/</guid>
+    <description><![CDATA[本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置后在切换buffer时不会]]></description>
+</item>
+<item>
     <title>Git基础内容</title>
     <link>http://Lonjiazeng.github.io/posts/git_base/</link>
     <pubDate>Sun, 28 Aug 2022 12:48:04 &#43;0800</pubDate>

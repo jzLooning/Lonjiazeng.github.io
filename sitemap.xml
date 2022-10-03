@@ -2,9 +2,10 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>http://Lonjiazeng.github.io/</loc><lastmod>2022-10-02T09:51:30&#43;08:00</lastmod></url><url>
+            <loc>http://Lonjiazeng.github.io/posts/</loc><lastmod>2022-10-02T09:51:30&#43;08:00</lastmod></url><url>
+            <loc>http://Lonjiazeng.github.io/posts/learn-vim-sw-note/</loc><lastmod>2022-10-02T09:51:30&#43;08:00</lastmod></url><url>
             <loc>http://Lonjiazeng.github.io/posts/git_base/</loc><lastmod>2022-08-28T12:48:04&#43;08:00</lastmod></url><url>
-            <loc>http://Lonjiazeng.github.io/</loc><lastmod>2022-08-28T12:48:04&#43;08:00</lastmod></url><url>
-            <loc>http://Lonjiazeng.github.io/posts/</loc><lastmod>2022-08-28T12:48:04&#43;08:00</lastmod></url><url>
             <loc>http://Lonjiazeng.github.io/posts/basic_syntax/</loc><lastmod>2022-08-25T10:50:22&#43;08:00</lastmod></url><url>
             <loc>http://Lonjiazeng.github.io/categories/</loc></url><url>
             <loc>http://Lonjiazeng.github.io/tags/</loc></url></urlset>
