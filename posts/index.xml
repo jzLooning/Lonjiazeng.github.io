@@ -10,7 +10,7 @@
     <pubDate>Sun, 02 Oct 2022 09:51:30 &#43;0800</pubDate>
     <author>Jiazeng Long</author>
     <guid>http://Lonjiazeng.github.io/posts/learn-vim-sw-note/</guid>
-    <description><![CDATA[本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置后在切换buffer时不会]]></description>
+    <description><![CDATA[本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 此处附上vim命令速查手册 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置]]></description>
 </item>
 <item>
     <title>Git基础内容</title>

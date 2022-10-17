@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>vim的学习笔记 - ljz&#39;s personal blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="vim的学习笔记" />
-<meta property="og:description" content="本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置后在切换buffer时不会" />
+<meta property="og:description" content="本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 此处附上vim命令速查手册 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/" />
 <meta property="article:published_time" content="2022-10-02T09:51:30+08:00" />
 <meta property="article:modified_time" content="2022-10-02T09:51:30+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="vim的学习笔记"/>
-<meta name="twitter:description" content="本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置后在切换buffer时不会"/>
+<meta name="twitter:description" content="本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 此处附上vim命令速查手册 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/"
-        },"genre": "posts","wordcount":  1245 ,
+        },"genre": "posts","wordcount":  1925 ,
         "url": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/","datePublished": "2022-10-02T09:51:30+08:00","dateModified": "2022-10-02T09:51:30+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,8 +69,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">vim的学习笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1245 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1925 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -96,9 +96,19 @@
         <li><a href="#在多文件中搜索和替换">在多文件中搜索和替换</a></li>
       </ul>
     </li>
+    <li><a href="#ch4-vim语法">ch4 Vim语法</a>
+      <ul>
+        <li><a href="#名词动作-motion">名词（动作 Motion）</a></li>
+        <li><a href="#动词操作符-operator">动词（操作符 Operator）</a></li>
+        <li><a href="#动词操作符-operator和名词动作-motions的组合">动词（操作符 Operator）和名词（动作 motions）的组合</a></li>
+        <li><a href="#名词续文本对象-text-objects">名词续（文本对象 Text Objects）</a></li>
+        <li><a href="#综合性和语法">综合性和语法</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><em><strong>本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，<a href="https://github.com/wsdjeg/Learn-Vim_zh_cn" title="访问原文" target="_blank" rel="noopener noreffer ">原文地址</a>。</strong></em></p>
+<p><em><strong>此处附上<a href="https://vim.rtorr.com/lang/zh_cn" title="点击访问" target="_blank" rel="noopener noreffer ">vim命令速查手册</a></strong></em></p>
 <h2 id="ch2-缓冲区窗口和选项卡">ch2 缓冲区，窗口和选项卡</h2>
 <h3 id="缓冲区">缓冲区</h3>
 <div class="details admonition note open">
@@ -276,6 +286,108 @@ Plug 'junegunn/fzf', { 'do': { -&gt; fzf#install() } }
     </div>
 <h3 id="在多文件中搜索和替换">在多文件中搜索和替换</h3>
 <p>这部分先鸽了🤣</p>
+<h2 id="ch4-vim语法">ch4 Vim语法</h2>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Vim语法规则<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">verb + noun # 动词 + 名词</div>
+        </div>
+    </div>
+<h3 id="名词动作-motion">名词（动作 Motion）</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>常见动作例子<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">h   左<br>
+j   下<br>
+k	上<br>
+l	右<br>
+w	向前移动到下一个单词的开头<br>
+}	跳转到下一个段落<br>
+$	跳转到当前行的末尾</div>
+        </div>
+    </div>
+<h3 id="动词操作符-operator">动词（操作符 Operator）</h3>
+<p>可用<code>:h opreator</code>命令来查看详细的操作符</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>常用操作符<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">y	yank(复制)<br>
+d	delete(删除)<br>
+c	change 删除文本，将删除的文本存到寄存器中，进入插入模式</div>
+        </div>
+    </div>
+<p>复制或者删除文本后，可以使用<code>p</code>将其粘贴到光标后，用<code>P</code>将其粘贴到光标前。</p>
+<h3 id="动词操作符-operator和名词动作-motions的组合">动词（操作符 Operator）和名词（动作 motions）的组合</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>动词&#43;名词的组合<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">复制当前位置到行尾的所有内容：<code>y$</code><br>
+删除当前位置到下一个单词的开头：<code>dw</code><br>
+修改当前位置到这个段落的结尾：<code>c}</code></div>
+        </div>
+    </div>
+<p>名词可以接受数字作为参数
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>动词&#43;名词的组合<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">向左拷贝2个字符：<code>y2h</code><br>
+删除后两个单词：<code>d2w</code><br>
+修改后面两行：<code>c2j</code></div>
+        </div>
+    </div></p>
+<h3 id="名词续文本对象-text-objects">名词续（文本对象 Text Objects）</h3>
+<p>文本对象可以被 操作符 operations 使用，这里有两类文本对象：
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">i + object  内部文本对象<br>
+a + object  外部文本对象</div>
+        </div>
+    </div></p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>常见文本对象<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">w     一个单词<br>
+p     一个段落<br>
+s     一个句子<br>
+( 或 )  一对()<br>
+{ 或 }  一对{}<br>
+[ 或 ]  一对[]<br>
+&lt; 或 &gt;  一对&lt;&gt;<br>
+t     XML标签<br>
+&quot;     一对&quot;&quot;<br>
+'     一对''<br>
+`     一对``</div>
+        </div>
+    </div>
+<p>了解更多可以使用<code>:h text-objects</code>。</p>
+<h3 id="综合性和语法">综合性和语法</h3>
+<p>Vim有一个 过滤操作符<code>!</code>可以用外部程序过滤我们的文本。</p>
+<p>例如将一下文本格式化</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">Id|Name|Cuteness
+01|Puppy|Very
+02|Kitten|Ok
+03|Bunny|Ok
+</code></pre></div><p>使用命令<code>!}column -t -s &quot;|&quot;</code>后效果如下：</p>
+<pre><code>Id  Name    Cuteness
+01  Puppy   Very
+02  Kitten  Ok
+03  Bunny   Ok
+</code></pre><p>插件<a href="https://github.com/kana/vim-textobj-user" title="访问git仓库" target="_blank" rel="noopener noreffer ">vim-textobj-user</a>允许你创建自己的文本对象，同时包含有一系列定义好的文本对象。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
