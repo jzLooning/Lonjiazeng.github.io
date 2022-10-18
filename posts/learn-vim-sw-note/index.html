@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/"
-        },"genre": "posts","wordcount":  1925 ,
+        },"genre": "posts","wordcount":  3367 ,
         "url": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/","datePublished": "2022-10-02T09:51:30+08:00","dateModified": "2022-10-02T09:51:30+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,8 +69,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">vim的学习笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1925 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3367 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -103,6 +103,22 @@
         <li><a href="#动词操作符-operator和名词动作-motions的组合">动词（操作符 Operator）和名词（动作 motions）的组合</a></li>
         <li><a href="#名词续文本对象-text-objects">名词续（文本对象 Text Objects）</a></li>
         <li><a href="#综合性和语法">综合性和语法</a></li>
+      </ul>
+    </li>
+    <li><a href="#ch5-移动文件">ch5 移动文件</a>
+      <ul>
+        <li><a href="#字符导航">字符导航</a></li>
+        <li><a href="#行号和相对行号">行号和相对行号</a></li>
+        <li><a href="#移动计数">移动计数</a></li>
+        <li><a href="#单词导航">单词导航</a></li>
+        <li><a href="#当前行导航">当前行导航</a></li>
+        <li><a href="#句子和段落导航">句子和段落导航</a></li>
+        <li><a href="#匹配导航">匹配导航</a></li>
+        <li><a href="#行号导航">行号导航</a></li>
+        <li><a href="#窗格导航">窗格导航</a></li>
+        <li><a href="#滚动">滚动</a></li>
+        <li><a href="#搜索导航">搜索导航</a></li>
+        <li><a href="#位置标记">位置标记</a></li>
       </ul>
     </li>
   </ul>
@@ -388,6 +404,162 @@ t     XML标签<br>
 02  Kitten  Ok
 03  Bunny   Ok
 </code></pre><p>插件<a href="https://github.com/kana/vim-textobj-user" title="访问git仓库" target="_blank" rel="noopener noreffer ">vim-textobj-user</a>允许你创建自己的文本对象，同时包含有一系列定义好的文本对象。</p>
+<h2 id="ch5-移动文件">ch5 移动文件</h2>
+<h3 id="字符导航">字符导航</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">h   左<br>
+j   下<br>
+k   上<br>
+l   右</div>
+        </div>
+    </div>
+<h3 id="行号和相对行号">行号和相对行号</h3>
+<p><code>set relativenumber/norelativenumber number/nonumber</code></p>
+<h3 id="移动计数">移动计数</h3>
+<p>在使用移动前加上一个数字，可以重复多次移动。</p>
+<p><code>[计数] + 移动</code></p>
+<h3 id="单词导航">单词导航</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">w		移动到下一个单词的开头<br>
+W		移动到下一个词组的开头<br>
+e		移动到下一个单词的结尾<br>
+E		移动到下一个词组的结尾<br>
+b		移动到前一个单词的开头<br>
+B		移动到前一个词组的开头<br>
+ge	移动到前一个单词的结尾<br>
+gE	移动到前一个词组的结尾</div>
+        </div>
+    </div>
+<p>单词和词组都按照非空字符被分割，一个单词指的是一个只包含<code>a-zA-Z0-9</code>字符串，一个词组指的是一个包含除了空字符(包括空格，tab，EOL)以外的字符的字符串。 你可以通过<code>:h word</code>和<code>:h WORD</code>了解更多。</p>
+<h3 id="当前行导航">当前行导航</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">0		跳到本行第一个字符<br>
+^		跳到本行第一个非空字符<br>
+g_      跳到本行最后一个非空字符<br>
+$		跳到本行最后一个字符<br>
+n|      跳到本行第n列<br>
+f   在同一行向后搜索第一个匹配<br>
+F   在同一行向前搜索第一个匹配<br>
+t   在同一行向后搜索第一个匹配，并停在匹配前<br>
+T   在同一行向前搜索第一个匹配，并停在匹配前<br>
+;   在同一行重复最近一次搜索<br>
+,   在同一行向相反方向重复最近一次搜索</div>
+        </div>
+    </div>
+<h3 id="句子和段落导航">句子和段落导航</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">(   跳到前一个句子<br>
+)   跳到下一个句子<br>
+{   跳转到上一个段落<br>
+}   跳转到下一个段落</div>
+        </div>
+    </div>
+<p>一个句子的定义是以.!?和跟着的一个换行符或空格，tab结尾的。一个段落总是以一个空行开始和结尾。</p>
+<p>你可以通过<code>:h setence</code>和<code>:h paragraph</code>了解更多。</p>
+<h3 id="匹配导航">匹配导航</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><code>%    Navigate to another match, usually works for (), [], {}</code></div>
+        </div>
+    </div>
+<h3 id="行号导航">行号导航</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">gg      跳转到第一行<br>
+G       跳转到最后一行<br>
+nG      跳转到第n行<br>
+n%      跳到文件的n%</div>
+        </div>
+    </div>
+<p>另外，如果你想看文件总行数，可以用<code>CTRL-g</code>查看。</p>
+<h3 id="窗格导航">窗格导航</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">H   跳转到屏幕的顶部<br>
+M   跳转到屏幕的中间<br>
+L   跳转到屏幕的底部<br>
+nH  跳转到距离顶部n行的位置<br>
+nL  跳转到距离底部n行的位置</div>
+        </div>
+    </div>
+<h3 id="滚动">滚动</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Ctrl-e    向下滚动一行<br>
+Ctrl-d    向下滚动半屏<br>
+Ctrl-f    向下滚动一屏<br>
+Ctrl-y    向上滚动一行<br>
+Ctrl-u    向上滚动半屏<br>
+Ctrl-b    向上滚动一屏<br>
+zt    将当前行置于屏幕顶部附近<br>
+zz    将当前行置于屏幕中央<br>
+zb    将当前行置于屏幕底部</div>
+        </div>
+    </div>
+<h3 id="搜索导航">搜索导航</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">/   向后搜索一个匹配<br>
+?   向前搜素一个匹配<br>
+n   重复上一次搜索(和上一次方向相同)<br>
+N   重复上一次搜索(和上一次方向相反)<br>
+*   向后查找光标所在的完整单词<br>
+#   向前查找光标所在的完整单词<br>
+g*  向后搜索光标所在的单词<br>
+g#  向前搜索光标所在的单词</div>
+        </div>
+    </div>
+<p>如果你的光标位于一个字符串&quot;one&quot;上，按下*相当于<code>/\&lt;one\&gt;</code>。 <code>/\&lt;one\&gt;</code>中的<code>\&lt;</code>和<code>\&gt;</code>表示整词匹配，使得一个更长的包含&quot;one&quot;的单词不会被匹配上，也就是说它会匹配&quot;one&rdquo;，但不会匹配&quot;onetwo&rdquo;。 如果你的光标在&quot;one&quot;上并且你想向后搜索完全或部分匹配的单词，例如&quot;one&quot;和&quot;onetwo&rdquo;，你可以用<code>g*</code>替代<code>*</code>。</p>
+<h3 id="位置标记">位置标记</h3>
+<p>你可以通过标记保存当前位置并在之后回到这个位置，就像文本编辑中的书签。 你可以通过<code>mx</code>设置一个标记，其中x可以是a-zA-Z。 有两种办法能回到标记的位置： 用`x精确回到(行和列)，或者用<code>'x</code>回到行级位置。使用<code>:marks</code>查看所有标签。</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">ma    用a标签标记一个位置<br>
+`a    精确回到a标签的位置(行和列)<br>
+'a    跳转到a标签的行<br>
+''   在当前buffer中跳转回到上一次跳转前的最后一行<br>
+``  在当前buffer中跳转回到上一次跳转前的最后一个位置<br>
+`[  跳转到上一次修改或拷贝的文本的开头<br>
+`]  跳转到上一次修改或拷贝的文本的结尾<br>
+`&lt;  跳转到最近一次可视模式下选择的部分的开头<br>
+`&gt;  跳转到最近一次可视模式下选择的部分的结尾<br>
+`0  跳转到退出Vim前编辑的最后一个文件</div>
+        </div>
+    </div>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
