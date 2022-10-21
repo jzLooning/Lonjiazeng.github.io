@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/"
-        },"genre": "posts","wordcount":  3367 ,
+        },"genre": "posts","wordcount":  3912 ,
         "url": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/","datePublished": "2022-10-02T09:51:30+08:00","dateModified": "2022-10-02T09:51:30+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,8 +69,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">vim的学习笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3367 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3912 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -121,6 +121,12 @@
         <li><a href="#位置标记">位置标记</a></li>
       </ul>
     </li>
+    <li><a href="#ch6-输入模式">ch6 输入模式</a>
+      <ul>
+        <li><a href="#执行普通模式下的命令">执行普通模式下的命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#ch7-点命令">ch7 点命令</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><em><strong>本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，<a href="https://github.com/wsdjeg/Learn-Vim_zh_cn" title="访问原文" target="_blank" rel="noopener noreffer ">原文地址</a>。</strong></em></p>
@@ -560,6 +566,75 @@ g#  向前搜索光标所在的单词</div>
 `0  跳转到退出Vim前编辑的最后一个文件</div>
         </div>
     </div>
+<h2 id="ch6-输入模式">ch6 输入模式</h2>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>进入输入模式<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">i    从光标之前的位置开始输入文本<br>
+I    从当前行第一个非空字符之前的位置之前开始输入文本<br>
+a    在光标之后的位置追加文本<br>
+A    在当前行的末尾追加文本<br>
+o    在光标位置下方新起一行并开始输入文本<br>
+O    在光标位置的上方新起一行并开始输入文本<br>
+s    删除当前光标位置的字符并开始输入文本<br>
+S    删除当前行并开始输入文本<br>
+gi   从当前缓冲区上次结束输入模式的地方开始输入文本<br>
+gI   在当前行的第一列的位置开始输入文本</div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>退出输入模式<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><!-- raw HTML omitted -->     退出输入模式进入普通模式<br>
+Ctrl-[    退出输入模式进入普通模式<br>
+Ctrl-c    与 Ctrl-[ 和 <!-- raw HTML omitted -->功能相同, 但是不检查缩写</div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>在输入模式中删除大块文本<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Ctrl-h    删除一个字符<br>
+Ctrl-w    删除一个单词<br>
+Ctrl-u    删除一整行</div>
+        </div>
+    </div>
+<h3 id="执行普通模式下的命令">执行普通模式下的命令</h3>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>设置居中以及跳转<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Ctrl-o zz       居中窗口<br>
+Ctrl-o H/M/L    跳转到窗口的顶部/中部/底部<br>
+Ctrl-o &lsquo;a       跳转到标志&rsquo;a处</div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>执行终端命令<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Ctrl-o !! curl <a href="https://google.com">https://google.com</a>    运行curl命令<br>
+Ctrl-o !! pwd                        运行pwd命令</div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>快速删除<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Ctrl-o dtz    从当前位置开始删除文本，直到遇到字母&quot;z&rdquo;<br>
+Ctrl-o D      从当前位置开始删除文本，直到行末</div>
+        </div>
+    </div>
+<h2 id="ch7-点命令">ch7 点命令</h2>
+<p>点命令（<code>.</code>)可以用来重放上一个修改操作。详细地可以通过<code>:h .</code>来查看定义。简单来说就是 <em><strong>当你使用普通模式下的命令来更新（添加，修改或者删除）当前缓冲区中的内容时，你就是在执行一个修改操作了。</strong></em> 其中的例外是使用命令行命令进行的修改（以<code>：</code>开头的命令），这些命令不算作修改操作。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
