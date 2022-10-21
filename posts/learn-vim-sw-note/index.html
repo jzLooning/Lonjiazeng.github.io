@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/"
-        },"genre": "posts","wordcount":  3912 ,
+        },"genre": "posts","wordcount":  5615 ,
         "url": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/","datePublished": "2022-10-02T09:51:30+08:00","dateModified": "2022-10-02T09:51:30+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,8 +69,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">vim的学习笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3912 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5615 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -127,6 +127,24 @@
       </ul>
     </li>
     <li><a href="#ch7-点命令">ch7 点命令</a></li>
+    <li><a href="#ch8-寄存器">ch8 寄存器</a>
+      <ul>
+        <li><a href="#匿名寄存器">匿名寄存器(<code>&quot;&quot;</code>)</a></li>
+        <li><a href="#编号寄存器0-9">编号寄存器（<code>&quot;0-9</code>)</a></li>
+        <li><a href="#小删除寄存器-">小删除寄存器（<code>&quot;-</code>）</a></li>
+        <li><a href="#命名寄存器a-z">命名寄存器（<code>&quot;a-z</code>）</a></li>
+        <li><a href="#只读寄存器">只读寄存器（<code>&quot;:</code>,<code>&quot;.</code>,<code>&quot;%</code>）</a></li>
+        <li><a href="#buffer交替文件寄存器">Buffer交替文件寄存器（<code>&quot;#</code>）</a></li>
+        <li><a href="#表达式寄存器">表达式寄存器（<code>&quot;=</code>）</a></li>
+        <li><a href="#选取和拖放寄存器">选取和拖放寄存器(<code>&quot;*</code>,<code>&quot;+</code>)</a></li>
+        <li><a href="#黑洞寄存器_">黑洞寄存器（<code>&quot;_</code>）</a></li>
+        <li><a href="#搜索模式寄存器">搜索模式寄存器（<code>&quot;/</code>）</a></li>
+        <li><a href="#查看所有寄存器">查看所有寄存器</a></li>
+        <li><a href="#执行寄存器">执行寄存器</a></li>
+        <li><a href="#清除寄存器">清除寄存器</a></li>
+        <li><a href="#获取寄存器的内容">获取寄存器的内容</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><em><strong>本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，<a href="https://github.com/wsdjeg/Learn-Vim_zh_cn" title="访问原文" target="_blank" rel="noopener noreffer ">原文地址</a>。</strong></em></p>
@@ -635,6 +653,104 @@ Ctrl-o D      从当前位置开始删除文本，直到行末</div>
     </div>
 <h2 id="ch7-点命令">ch7 点命令</h2>
 <p>点命令（<code>.</code>)可以用来重放上一个修改操作。详细地可以通过<code>:h .</code>来查看定义。简单来说就是 <em><strong>当你使用普通模式下的命令来更新（添加，修改或者删除）当前缓冲区中的内容时，你就是在执行一个修改操作了。</strong></em> 其中的例外是使用命令行命令进行的修改（以<code>：</code>开头的命令），这些命令不算作修改操作。</p>
+<h2 id="ch8-寄存器">ch8 寄存器</h2>
+<p>下面是Vim所拥有的10种寄存器类型：</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ol>
+<li>匿名寄存器（&quot;&quot;）.</li>
+<li>编号寄存器(&ldquo;0-9).</li>
+<li>小删除寄存器 (&quot;-).</li>
+<li>命名寄存器 (&ldquo;a-z).</li>
+<li>只读寄存器 (&quot;:, &ldquo;., and &ldquo;%).</li>
+<li>Buffer交替文件寄存器 (&quot;#).</li>
+<li>表达式寄存器 (&ldquo;=).</li>
+<li>选取和拖放寄存器(&quot;* and &ldquo;+).</li>
+<li>黑洞寄存器 (&quot;_).</li>
+<li>搜索模式寄存器 (&quot;/).</li>
+</ol></div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>存值在寄存器中的操作<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">y    复制<br>
+c    删除文本并进入输入模式<br>
+d    删除文本</div>
+        </div>
+    </div>
+<p>其实还有更多的寄存器写入操作,根据经验看来，如果一个操作删除了文本，那么很有可能这个操作将移除的文本存入寄存器中了。</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>在输入模式中使用寄存器<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Ctrl-r x</div>
+        </div>
+    </div>
+<p>其中x是寄存器标志。</p>
+<h3 id="匿名寄存器">匿名寄存器(<code>&quot;&quot;</code>)</h3>
+<p>想从匿名寄存器中获取文本，可以使用<code>&quot;&quot;p</code>。 匿名寄存器默认存储着你最近一次复制，修改或删除的文本。如果再进行另一次复制，修改或删除，Vim会自动替换匿名寄存器中的文本。</p>
+<p>默认情况下，<code>p</code>(或者<code>P</code>)是和匿名寄存器相关联的。</p>
+<h3 id="编号寄存器0-9">编号寄存器（<code>&quot;0-9</code>)</h3>
+<p><strong>复制寄存器 (i<code>&quot;0</code>)</strong></p>
+<p>如果你使用<code>yy</code>来复制一整行文本，事实上Vim会将文本存放两个寄存器中:</p>
+<ol>
+<li>匿名寄存器（<code>p</code>)</li>
+<li>复制寄存器（<code>&quot;0</code>)</li>
+</ol>
+<p>在你又复制其他不同的文本后，Vim会自动替换匿名寄存器和复制寄存器(<code>0</code>)中的内容。 <em><strong>复制寄存器的内容会自动放入剪切板中。</strong></em></p>
+<p><strong>编号寄存器（&ldquo;1-9）</strong></p>
+<p>当你修改或者删除至少一整行的文本时，这部分文本会按时间顺序被存储在1-9号编号寄存器中。（编号越小时间距离越近）</p>
+<h3 id="小删除寄存器-">小删除寄存器（<code>&quot;-</code>）</h3>
+<p>不足一行的修改或者删除都不会被存储在0-9号编号寄存器中，而是会被存储在小删除寄存器 (<code>&quot;-</code>)中。</p>
+<h3 id="命名寄存器a-z">命名寄存器（<code>&quot;a-z</code>）</h3>
+<p>a-z命名寄存器可以存储复制的，修改的和被删除的文本。你需要显式地告诉Vim你要使用命名寄存器，你拥有完整的控制权。</p>
+<p>为了复制一个单词到寄存器&quot;a&quot;中，你可以使用命令<code>&quot;ayiw</code>:</p>
+<ul>
+<li><code>&quot;a</code>告诉Vim下一个动作（删除/修改/复制）会被存储在寄存器&quot;a&quot;中</li>
+<li><code>yiw</code>复制这个单词</li>
+</ul>
+<p>有时你可能会想要往已有内容的命名寄存器中继续添加内容，这种情况下，你可以追加文本而不是全部重来。你可以使用大写版本的命名寄存器来进行文本的追加。</p>
+<h3 id="只读寄存器">只读寄存器（<code>&quot;:</code>,<code>&quot;.</code>,<code>&quot;%</code>）</h3>
+<dl>
+<dt>.    存储上一个输入的文本</dt>
+<dd>存储上一次执行的命令<br>
+%    存储当前文件的文件名</dd>
+</dl>
+<h3 id="buffer交替文件寄存器">Buffer交替文件寄存器（<code>&quot;#</code>）</h3>
+<p>在Vim中，#通常代表交替文件。交替文件指的是你上一个打开的文件，想要插入交替文件的名字的话，可以使用命令<code>&quot;#p</code>。</p>
+<h3 id="表达式寄存器">表达式寄存器（<code>&quot;=</code>）</h3>
+<p>你可以使用以下命令计算数学表达式1+1的值：</p>
+<pre><code>    &quot;=1+1&lt;Enter&gt;p
+
+    Ctrl-r =1+1 (输入模式)
+
+    &quot;=@a (a为某个寄存器，里面保存着表达式)
+
+    Ctrl-r =@a (输入模式)
+</code></pre><h3 id="选取和拖放寄存器">选取和拖放寄存器(<code>&quot;*</code>,<code>&quot;+</code>)</h3>
+<p>需要配合vim-gui（gvim)使用，并且支持<code>clipboard</code>特性，此处跳过。</p>
+<h3 id="黑洞寄存器_">黑洞寄存器（<code>&quot;_</code>）</h3>
+<p>有些时候你并不希望把什么东西都往寄存器里存,你可以使用黑洞寄存器（<code>&quot;_</code>）。</p>
+<p>它是和<code>/dev/null</code>类似的寄存器。</p>
+<h3 id="搜索模式寄存器">搜索模式寄存器（<code>&quot;/</code>）</h3>
+<p>为了粘贴你的上一个搜索询问（<code>/</code>或<code>?</code>），你可以使用搜索模式寄存器(<code>&quot;/</code> )。使用命令<code>&quot;/p</code>就能粘贴上一个搜索的条目。</p>
+<h3 id="查看所有寄存器">查看所有寄存器</h3>
+<p>你可以使用<code>:register</code>命令来查看你的所有寄存器。如果你只想查看&quot;a&rdquo;,&ldquo;1&quot;和&rdquo;-&ldquo;寄存器的内容的话则可以使用命令<code>:register a 1 -</code>。</p>
+<p>有一个Vim的插件叫做<code><a href="https://github.com/junegunn/vim-peekaboo" title="vim-peekaboo" target="_blank" rel="noopener noreffer ">vim-peekaboo</a></code>,可以让你查看到寄存器的内容，在普通模式下输入<code>&quot;</code>或<code>@</code> 即可，或者在输入模式中输入<code>Ctrl-r</code>。</p>
+<h3 id="执行寄存器">执行寄存器</h3>
+<p>命名寄存器不只可以用来存放文本，你还可以借助<code>@</code>来执行宏命令。</p>
+<h3 id="清除寄存器">清除寄存器</h3>
+<p>你可以通过记录一个空的宏命令来快速地清除任何命名寄存器。</p>
+<p>还有一种清除寄存器的方法就是使用表达式<code>:let @a = ''</code>来将寄存器&quot;a 的值设为空的字符串。</p>
+<h3 id="获取寄存器的内容">获取寄存器的内容</h3>
+<p>你可以使用<code>:put</code>命令来粘贴任何寄存器的内容。此命令会心起一行打印内容。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
