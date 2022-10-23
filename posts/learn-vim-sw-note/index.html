@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/"
-        },"genre": "posts","wordcount":  5615 ,
+        },"genre": "posts","wordcount":  5882 ,
         "url": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/","datePublished": "2022-10-02T09:51:30+08:00","dateModified": "2022-10-02T09:51:30+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">vim的学习笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5615 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5882 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -143,6 +143,11 @@
         <li><a href="#执行寄存器">执行寄存器</a></li>
         <li><a href="#清除寄存器">清除寄存器</a></li>
         <li><a href="#获取寄存器的内容">获取寄存器的内容</a></li>
+      </ul>
+    </li>
+    <li><a href="#ch9">ch9</a>
+      <ul>
+        <li><a href="#命令行执行宏">命令行执行宏</a></li>
       </ul>
     </li>
   </ul>
@@ -751,6 +756,30 @@ d    删除文本</div>
 <p>还有一种清除寄存器的方法就是使用表达式<code>:let @a = ''</code>来将寄存器&quot;a 的值设为空的字符串。</p>
 <h3 id="获取寄存器的内容">获取寄存器的内容</h3>
 <p>你可以使用<code>:put</code>命令来粘贴任何寄存器的内容。此命令会心起一行打印内容。</p>
+<h2 id="ch9">ch9</h2>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>基本宏命令<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">qa                     开始记录动作到寄存器 a<br>
+q (while recording)    停止记录</div>
+        </div>
+    </div>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>调用宏命令<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">@a    Execute macro from register a<br>
+@@    Execute the last executed macros</div>
+        </div>
+    </div>
+<p>在执行遇到错误的时候，宏命令会自动停止。</p>
+<h3 id="命令行执行宏">命令行执行宏</h3>
+<p>在正常模式执行<code>@a</code>并不是宏命令调用的唯一方式。你也可以在命令行执行<code>：normal @a</code>。<code>：normal</code>会将任何用户添加的参数作为命令去执行。例如添加<code>@a</code>，和在<code>normal mode</code>执行<code>@a</code>的效果是一样的。</p>
+<p><code>:normal</code>命令也支持范围参数。你可以在选择的范围内去执行宏命令。如果你只想在第二行和第三行执行宏命令，你可以执行<code>：2,3 normal @a</code>。</p>
+<p><em><strong><code>Ctrl-v</code>是一个插入模式的操作符，可以逐字地插入一个非数字字符。</strong></em></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
