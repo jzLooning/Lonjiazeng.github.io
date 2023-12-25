@@ -7,11 +7,11 @@
         <title>vim的学习笔记 - ljz&#39;s personal blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="vim的学习笔记" />
 <meta property="og:description" content="本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 此处附上vim命令速查手册 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/" />
+<meta property="og:url" content="http://Lonjiazeng.github.io/posts/learn-vim-sw-note/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-10-02T09:51:30+08:00" />
 <meta property="article:modified_time" content="2022-10-02T09:51:30+08:00" /><meta property="og:site_name" content="My cool site" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="vim的学习笔记"/>
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="vim的学习笔记"/>
 <meta name="twitter:description" content="本文为《Learn-Vim（the Smart Way）》中文翻译的学习笔记，原文地址。 此处附上vim命令速查手册 ch2 缓冲区，窗口和选项卡 缓冲区 Note set hidden 设置"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/"
-        },"genre": "posts","wordcount":  5882 ,
+        },"genre": "posts","wordcount":  5877 ,
         "url": "http:\/\/Lonjiazeng.github.io\/posts\/learn-vim-sw-note\/","datePublished": "2022-10-02T09:51:30+08:00","dateModified": "2022-10-02T09:51:30+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">vim的学习笔记</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/Lonjiazeng/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jiazeng Long</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5882 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-02">2022-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5877 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -261,14 +261,14 @@
 <h4 id="安装">安装</h4>
 <p>插件地址<a href="https://github.com/junegunn/fzf" title="访问fzf的GitHub仓库" target="_blank" rel="noopener noreffer ">fzf</a>, <a href="https://github.com/BurntSushi/ripgrep" title="访问ripgrep的GitHub仓库" target="_blank" rel="noopener noreffer ">ripgrep</a></p>
 <p>往<code>.zshrc</code>中添加下列代码（若是其它shell，请修改相应的<code>.*rc</code>文件）</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="k">if</span> <span class="nb">type</span> rg <span class="p">&amp;</span>&gt; /dev/null<span class="p">;</span> <span class="k">then</span>
-  <span class="nb">export</span> <span class="nv">FZF_DEFAULT_COMMAND</span><span class="o">=</span><span class="s1">&#39;rg --files&#39;</span>
-  <span class="nb">export</span> <span class="nv">FZF_DEFAULT_OPTS</span><span class="o">=</span><span class="s1">&#39;-m&#39;</span>
-<span class="k">fi</span>
-</code></pre></div><p><code>FZF_DEFAULT_OPTS</code>中的<code>-m</code>允许我们按下<code>&lt;TAB&gt;</code>和<code>&lt;S-TAB&gt;</code>进行多重选择</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">type</span> rg <span class="p">&amp;</span>&gt; /dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">FZF_DEFAULT_COMMAND</span><span class="o">=</span><span class="s1">&#39;rg --files&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">export</span> <span class="nv">FZF_DEFAULT_OPTS</span><span class="o">=</span><span class="s1">&#39;-m&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></div><p><code>FZF_DEFAULT_OPTS</code>中的<code>-m</code>允许我们按下<code>&lt;TAB&gt;</code>和<code>&lt;S-TAB&gt;</code>进行多重选择</p>
 <p>安装好之后还需要在<code>.vimrc</code>中安装fzf插件</p>
-<pre><code class="language-vimscript" data-lang="vimscript">Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -&gt; fzf#install() } }
+<pre tabindex="0"><code class="language-vimscript" data-lang="vimscript">Plug &#39;junegunn/fzf.vim&#39;
+Plug &#39;junegunn/fzf&#39;, { &#39;do&#39;: { -&gt; fzf#install() } }
 </code></pre><h4 id="fzf语法">fzf语法</h4>
 <div class="details admonition note open">
         <div class="details-summary admonition-title">
@@ -283,10 +283,10 @@ Plug 'junegunn/fzf', { 'do': { -&gt; fzf#install() } }
 <p><code>$</code> 表示后缀精确匹配。要搜索一个以&quot;my friends&quot;结尾的短语：<code>friends$</code>。</p>
 </li>
 <li>
-<p><code>'</code> 表示精确匹配。要搜索短语&quot;welcom my friends&rdquo;：<code>'welcom my friends</code>。</p>
+<p><code>'</code> 表示精确匹配。要搜索短语&quot;welcom my friends&quot;：<code>'welcom my friends</code>。</p>
 </li>
 <li>
-<p><code>|</code> 表示&quot;或者&quot;匹配。要搜索&quot;friends&quot;或&quot;foes&rdquo;：<code>friends | foes</code>。</p>
+<p><code>|</code> 表示&quot;或者&quot;匹配。要搜索&quot;friends&quot;或&quot;foes&quot;：<code>friends | foes</code>。</p>
 </li>
 <li>
 <p><code>!</code> 表示反向匹配。要搜索一个包含&quot;welcome&quot;但不包含&quot;friends&quot;的短语：<code>welcome !friends</code>。</p>
@@ -324,7 +324,7 @@ Plug 'junegunn/fzf', { 'do': { -&gt; fzf#install() } }
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>将其加入到<code>.vimrc</code>中</p>
-<pre><code>set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+<pre tabindex="0"><code>set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 </code></pre><p>此时再使用<code>:grep</code>命令将使用上述的命令，而不是<code>grep</code></p>
 </div>
         </div>
@@ -423,12 +423,12 @@ t     XML标签<br>
 <h3 id="综合性和语法">综合性和语法</h3>
 <p>Vim有一个 过滤操作符<code>!</code>可以用外部程序过滤我们的文本。</p>
 <p>例如将一下文本格式化</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">Id|Name|Cuteness
-01|Puppy|Very
-02|Kitten|Ok
-03|Bunny|Ok
-</code></pre></div><p>使用命令<code>!}column -t -s &quot;|&quot;</code>后效果如下：</p>
-<pre><code>Id  Name    Cuteness
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Id|Name|Cuteness
+</span></span><span class="line"><span class="cl">01|Puppy|Very
+</span></span><span class="line"><span class="cl">02|Kitten|Ok
+</span></span><span class="line"><span class="cl">03|Bunny|Ok
+</span></span></code></pre></div><p>使用命令<code>!}column -t -s &quot;|&quot;</code>后效果如下：</p>
+<pre tabindex="0"><code>Id  Name    Cuteness
 01  Puppy   Very
 02  Kitten  Ok
 03  Bunny   Ok
@@ -569,7 +569,7 @@ g*  向后搜索光标所在的单词<br>
 g#  向前搜索光标所在的单词</div>
         </div>
     </div>
-<p>如果你的光标位于一个字符串&quot;one&quot;上，按下*相当于<code>/\&lt;one\&gt;</code>。 <code>/\&lt;one\&gt;</code>中的<code>\&lt;</code>和<code>\&gt;</code>表示整词匹配，使得一个更长的包含&quot;one&quot;的单词不会被匹配上，也就是说它会匹配&quot;one&rdquo;，但不会匹配&quot;onetwo&rdquo;。 如果你的光标在&quot;one&quot;上并且你想向后搜索完全或部分匹配的单词，例如&quot;one&quot;和&quot;onetwo&rdquo;，你可以用<code>g*</code>替代<code>*</code>。</p>
+<p>如果你的光标位于一个字符串&quot;one&quot;上，按下*相当于<code>/\&lt;one\&gt;</code>。 <code>/\&lt;one\&gt;</code>中的<code>\&lt;</code>和<code>\&gt;</code>表示整词匹配，使得一个更长的包含&quot;one&quot;的单词不会被匹配上，也就是说它会匹配&quot;one&quot;，但不会匹配&quot;onetwo&quot;。 如果你的光标在&quot;one&quot;上并且你想向后搜索完全或部分匹配的单词，例如&quot;one&quot;和&quot;onetwo&quot;，你可以用<code>g*</code>替代<code>*</code>。</p>
 <h3 id="位置标记">位置标记</h3>
 <p>你可以通过标记保存当前位置并在之后回到这个位置，就像文本编辑中的书签。 你可以通过<code>mx</code>设置一个标记，其中x可以是a-zA-Z。 有两种办法能回到标记的位置： 用`x精确回到(行和列)，或者用<code>'x</code>回到行级位置。使用<code>:marks</code>查看所有标签。</p>
 <div class="details admonition note open">
@@ -643,7 +643,7 @@ Ctrl-o &lsquo;a       跳转到标志&rsquo;a处</div>
             <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>执行终端命令<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">Ctrl-o !! curl <a href="https://google.com">https://google.com</a>    运行curl命令<br>
+            <div class="admonition-content">Ctrl-o !! curl <a href="https://google.com" target="_blank" rel="noopener noreffer ">https://google.com</a>    运行curl命令<br>
 Ctrl-o !! pwd                        运行pwd命令</div>
         </div>
     </div>
@@ -652,7 +652,7 @@ Ctrl-o !! pwd                        运行pwd命令</div>
             <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>快速删除<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">Ctrl-o dtz    从当前位置开始删除文本，直到遇到字母&quot;z&rdquo;<br>
+            <div class="admonition-content">Ctrl-o dtz    从当前位置开始删除文本，直到遇到字母&quot;z&quot;<br>
 Ctrl-o D      从当前位置开始删除文本，直到行末</div>
         </div>
     </div>
@@ -668,15 +668,16 @@ Ctrl-o D      从当前位置开始删除文本，直到行末</div>
             <div class="admonition-content"><ol>
 <li>匿名寄存器（&quot;&quot;）.</li>
 <li>编号寄存器(&ldquo;0-9).</li>
-<li>小删除寄存器 (&quot;-).</li>
+<li>小删除寄存器 (&rdquo;-).</li>
 <li>命名寄存器 (&ldquo;a-z).</li>
-<li>只读寄存器 (&quot;:, &ldquo;., and &ldquo;%).</li>
-<li>Buffer交替文件寄存器 (&quot;#).</li>
-<li>表达式寄存器 (&ldquo;=).</li>
-<li>选取和拖放寄存器(&quot;* and &ldquo;+).</li>
-<li>黑洞寄存器 (&quot;_).</li>
+<li>只读寄存器 (&rdquo;:, &ldquo;., and &ldquo;%).</li>
+<li>Buffer交替文件寄存器 (&rdquo;#).</li>
+<li>表达式寄存器 (&quot;=).</li>
+<li>选取和拖放寄存器(&rdquo;* and &ldquo;+).</li>
+<li>黑洞寄存器 (&rdquo;_).</li>
 <li>搜索模式寄存器 (&quot;/).</li>
-</ol></div>
+</ol>
+</div>
         </div>
     </div>
 <div class="details admonition note open">
@@ -732,11 +733,11 @@ d    删除文本</div>
 <p>在Vim中，#通常代表交替文件。交替文件指的是你上一个打开的文件，想要插入交替文件的名字的话，可以使用命令<code>&quot;#p</code>。</p>
 <h3 id="表达式寄存器">表达式寄存器（<code>&quot;=</code>）</h3>
 <p>你可以使用以下命令计算数学表达式1+1的值：</p>
-<pre><code>    &quot;=1+1&lt;Enter&gt;p
+<pre tabindex="0"><code>    &#34;=1+1&lt;Enter&gt;p
 
     Ctrl-r =1+1 (输入模式)
 
-    &quot;=@a (a为某个寄存器，里面保存着表达式)
+    &#34;=@a (a为某个寄存器，里面保存着表达式)
 
     Ctrl-r =@a (输入模式)
 </code></pre><h3 id="选取和拖放寄存器">选取和拖放寄存器(<code>&quot;*</code>,<code>&quot;+</code>)</h3>
@@ -805,8 +806,8 @@ q (while recording)    停止记录</div>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.68.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Lonjiazeng/" target="_blank">Jiazeng Long</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Lonjiazeng/" target="_blank">Jiazeng Long</a></span></div>
         </div>
     </footer></div>
 

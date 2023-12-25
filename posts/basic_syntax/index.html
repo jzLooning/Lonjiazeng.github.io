@@ -7,11 +7,11 @@
         <title>markdown基础语法 - ljz&#39;s personal blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="markdown基础语法" />
 <meta property="og:description" content="本文为markdown官方教程基础语法篇的粗略翻译，本人水平有限，如有不足之处敬请指出。感谢观看 标题 语法部分讲解 标题部分使用#来作为标题的符" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://Lonjiazeng.github.io/posts/basic_syntax/" />
+<meta property="og:url" content="http://Lonjiazeng.github.io/posts/basic_syntax/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-25T10:50:22+08:00" />
 <meta property="article:modified_time" content="2022-08-25T10:50:22+08:00" /><meta property="og:site_name" content="My cool site" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="markdown基础语法"/>
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="markdown基础语法"/>
 <meta name="twitter:description" content="本文为markdown官方教程基础语法篇的粗略翻译，本人水平有限，如有不足之处敬请指出。感谢观看 标题 语法部分讲解 标题部分使用#来作为标题的符"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -123,19 +123,17 @@
 <h3 id="语法部分讲解">语法部分讲解</h3>
 <p>标题部分使用<code>#</code>来作为标题的符号，其中一个<code>#</code>代表一号标题，两个代表二号，以此类推。最多只有六号标题，使用的话最多三个就足够了。<br>
 <strong>注意</strong>：标题文字和<code>#</code>不能紧挨着，需要使用空格隔开，要不然会失效。还有标题的前后需要使用空行，要不也实现不了效果。</p>
-<pre><code>
+<pre tabindex="0"><code>
 # 我是一号标题
-
 </code></pre><p>正确。</p>
-<pre><code># 我是一号标题
+<pre tabindex="0"><code># 我是一号标题
 </code></pre><p>错误，没有前后空行。</p>
-<pre><code>
+<pre tabindex="0"><code>
 #我是一号标题
-
 </code></pre><p>错误,<code>#</code>后没有空格.</p>
 <h3 id="其他写法">其他写法</h3>
 <p>markdown的语法中给第一和第二标题给出了一种新写法。</p>
-<pre><code>Heading level 1
+<pre tabindex="0"><code>Heading level 1
 =============
 
 Heading level 2
@@ -159,13 +157,13 @@ Heading level 2
 <h3 id="块引用">（块）引用</h3>
 <p>单行引用时，另起一个段落，在那一行的开头使用<code>&gt;</code>符号。若是多行引用，则另起一个段落，在这个段落的每一行的开头都加入<code>&gt;</code>符号。为了兼容性，最好在引用的前后空一行</p>
 <p>单行引用</p>
-<pre><code>&gt; Dorothy followed her through many of the beautiful rooms in her castle.
+<pre tabindex="0"><code>&gt; Dorothy followed her through many of the beautiful rooms in her castle.
 </code></pre><p>效果</p>
 <blockquote>
 <p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
 </blockquote>
 <p>多行引用</p>
-<pre><code>&gt; Dorothy followed her through many of the beautiful rooms in her castle.
+<pre tabindex="0"><code>&gt; Dorothy followed her through many of the beautiful rooms in her castle.
 &gt;
 &gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 </code></pre><p>效果</p>
@@ -175,7 +173,7 @@ Heading level 2
 </blockquote>
 <h4 id="嵌套引用">嵌套引用</h4>
 <p>嵌套引用的部分再加一个<code>&gt;</code>即可。</p>
-<pre><code>&gt; Dorothy followed her through many of the beautiful rooms in her castle.
+<pre tabindex="0"><code>&gt; Dorothy followed her through many of the beautiful rooms in her castle.
 &gt;
 &gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 </code></pre><p>效果</p>
@@ -190,7 +188,7 @@ Heading level 2
 <h2 id="列表">列表</h2>
 <h3 id="有序列表">有序列表</h3>
 <p>在数字后加上<code>.</code>后跟空格即可。</p>
-<pre><code>1. first
+<pre tabindex="0"><code>1. first
 2. second
 3. third
 </code></pre><p>效果</p>
@@ -202,7 +200,7 @@ Heading level 2
 <p>注意：如果你想使用数字后加<code>.</code>但是不是为了加入序号，可以使用转义字符<code>\</code>。如<code>1982\.</code>，得到 1982.</p>
 <h3 id="无序列表">无序列表</h3>
 <p>无序列表的使用符号有<code>-</code>、<code>*</code>、<code>+</code>，使用方法和有序的一样，不过可以嵌套使用。如：</p>
-<pre><code>- First item
+<pre tabindex="0"><code>- First item
 - Second item
 - Third item
     - Indented item
@@ -252,8 +250,8 @@ markdown不能够处理URL中的空格，所以需要使用<code>%20</code>来�
 <pre><code>&lt;https://www.markdownguide.org&gt;
 &lt;fake@example.com&gt;
 </code></pre>
-<p><a href="https://www.markdownguide.org">https://www.markdownguide.org</a><br>
-<a href="mailto:fake@example.com">fake@example.com</a></p>
+<p><a href="https://www.markdownguide.org" target="_blank" rel="noopener noreffer ">https://www.markdownguide.org</a><br>
+<a href="mailto:fake@example.com" rel="">fake@example.com</a></p>
 <h3 id="引用类型的链接">引用类型的链接</h3>
 <p>引用类型分为两个部分，第一部分在正文中，使用两个中括号将内容包裹起来表示引用，另一个部分在文档中的某处（一般是最后），将这些引用的部分统一排列写出。</p>
 <h4 id="第一部分">第一部分</h4>
@@ -315,8 +313,8 @@ markdown不能够处理URL中的空格，所以需要使用<code>%20</code>来�
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.68.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Lonjiazeng/" target="_blank">Jiazeng Long</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/Lonjiazeng/" target="_blank">Jiazeng Long</a></span></div>
         </div>
     </footer></div>
 
