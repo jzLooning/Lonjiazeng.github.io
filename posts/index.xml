@@ -10,7 +10,7 @@
     <pubDate>Tue, 26 Dec 2023 14:19:08 &#43;0800</pubDate>
     <author>Jiazeng Long</author>
     <guid>http://Lonjiazeng.github.io/posts/ml/regression/</guid>
-    <description><![CDATA[本文为机器学习入门到精通！的关于回归问题的学习笔记。因本人水平有限，如有不足之处敬请指出。感谢观看 线性回归 数学公式： $$ h_\theta(x) = \displaystyle\sum_{i=0}^n \theta_i x_i = \theta^Tx $$ 误差：]]></description>
+    <description><![CDATA[本文为&ldquo;机器学习入门到精通&rdquo;的关于回归问题的学习笔记。因本人水平有限，如有不足之处敬请指出。感谢观看 线性回归 数学公式]]></description>
 </item>
 <item>
     <title>vim的学习笔记</title>
