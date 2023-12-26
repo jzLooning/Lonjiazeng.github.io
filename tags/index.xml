@@ -1,8 +1,16 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Tags - Tag - ljz&#39;s personal blog</title>
+        <title>Tags - Tag - ljz&#39;s blog</title>
         <link>http://Lonjiazeng.github.io/tags/</link>
-        <description>Tags - Tag - ljz&#39;s personal blog</description>
+        <description>Tags - Tag - ljz&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jz.long@qq.com (Jiazeng Long)</managingEditor>
-            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><atom:link href="http://Lonjiazeng.github.io/tags/" rel="self" type="application/rss+xml" /></channel>
+            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><lastBuildDate>Tue, 26 Dec 2023 14:19:08 &#43;0800</lastBuildDate><atom:link href="http://Lonjiazeng.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>机器学习</title>
+    <link>http://Lonjiazeng.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+    <pubDate>Tue, 26 Dec 2023 14:19:08 &#43;0800</pubDate>
+    <author>Jiazeng Long</author>
+    <guid>http://Lonjiazeng.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

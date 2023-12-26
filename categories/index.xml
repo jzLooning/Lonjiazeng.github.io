@@ -1,8 +1,16 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - Category - ljz&#39;s personal blog</title>
+        <title>Categories - Category - ljz&#39;s blog</title>
         <link>http://Lonjiazeng.github.io/categories/</link>
-        <description>Categories - Category - ljz&#39;s personal blog</description>
+        <description>Categories - Category - ljz&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>jz.long@qq.com (Jiazeng Long)</managingEditor>
-            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><atom:link href="http://Lonjiazeng.github.io/categories/" rel="self" type="application/rss+xml" /></channel>
+            <webMaster>jz.long@qq.com (Jiazeng Long)</webMaster><lastBuildDate>Tue, 26 Dec 2023 14:19:08 &#43;0800</lastBuildDate><atom:link href="http://Lonjiazeng.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>学习笔记</title>
+    <link>http://Lonjiazeng.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Tue, 26 Dec 2023 14:19:08 &#43;0800</pubDate>
+    <author>Jiazeng Long</author>
+    <guid>http://Lonjiazeng.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>
